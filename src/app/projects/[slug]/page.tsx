@@ -75,7 +75,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       <div className="w-full max-w-[756px] flex flex-col items-center relative z-10 pt-3 sm:pt-4">
         {/* Sasis Abu-abu Menampung Card Detail Proyek */}
         <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
-          <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-6 sm:px-8 md:px-[44px] pt-6 sm:pt-8 md:pt-10 pb-8 sm:pb-10 md:pb-12">
+          <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-5 sm:px-7 md:px-[32px] py-8 sm:py-10 md:py-[50px]">
             {/* Metadata Kategori dan Periode Waktu */}
             <div className="text-[13px] sm:text-[14px] font-normal text-muted">
               {project.category}
@@ -86,13 +86,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 : ""}
             </div>
 
-            {/* Judul Utama Proyek */}
-            <h1 className="mt-2 font-display text-[26px] sm:text-[32px] md:text-[36px] font-medium tracking-[-0.02em] text-text leading-tight">
+            {/* Judul Utama Proyek (26px) */}
+            <h1 className="mt-2 font-display text-[26px] font-medium tracking-[-0.015em] text-text leading-tight">
               {project.title}
             </h1>
 
-            {/* Ringkasan / Deskripsi Proyek */}
-            <p className="mt-2.5 max-w-[620px] text-[14px] sm:text-[14.5px] font-normal text-muted leading-relaxed">
+            {/* Ringkasan / Deskripsi Proyek (14px) */}
+            <p className="mt-2.5 max-w-[620px] text-[14px] font-normal text-muted leading-relaxed">
               {project.summary}
             </p>
 
@@ -133,7 +133,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                     <span className="font-display text-[13px] sm:text-[13.5px] font-medium text-text">
                       {section.tag}
                     </span>
-                    <h2 className="mt-2 font-display text-[18px] sm:text-[20px] md:text-[21px] font-medium text-text leading-snug">
+                    <h2 className="mt-2 font-display text-[18px] font-medium text-text leading-snug">
                       {section.title}
                     </h2>
                     <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted font-normal leading-relaxed">
