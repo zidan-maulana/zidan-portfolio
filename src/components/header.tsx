@@ -116,19 +116,19 @@ export function Header({
             key={item.label}
             href={item.href}
             role="menuitem"
-            className="group relative inline-flex h-[20px] items-center overflow-hidden rounded-md px-1 text-[13.5px] font-medium text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="group relative inline-block rounded-md px-1 py-0.5 text-[13.5px] font-medium text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
-            <div className="flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1/2 motion-reduce:transition-none">
-              <span className="flex h-[20px] items-center text-text transition-colors group-hover:text-muted">
+            <span className="relative block overflow-hidden leading-tight">
+              <span className="block transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-full motion-reduce:transition-none">
                 {item.label}
               </span>
               <span
-                className="flex h-[20px] items-center text-muted transition-colors"
+                className="absolute inset-0 block translate-y-full text-muted transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 motion-reduce:transition-none"
                 aria-hidden="true"
               >
                 {item.label}
               </span>
-            </div>
+            </span>
           </Link>
         ))}
       </div>
