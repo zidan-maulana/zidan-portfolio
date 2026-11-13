@@ -14,18 +14,18 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
       className={`pointer-events-none select-none ${className}`}
     >
       <defs>
-        {/* 4 Gradasi Vertikal dengan userSpaceOnUse agar garis stroke 1px ter-render sempurna di browser */}
+        {/* 4 Gradasi Vertikal dengan userSpaceOnUse dan fadeout halus di bagian bawah sebelum mencapai batas dasar card */}
         <linearGradient
           id="hero-vgrid-1"
           gradientUnits="userSpaceOnUse"
           x1="190"
           y1="60"
           x2="190"
-          y2="330"
+          y2="320"
         >
           <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
           <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
-          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="65%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
           <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
@@ -35,11 +35,11 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
           x1="232"
           y1="65"
           x2="232"
-          y2="360"
+          y2="345"
         >
           <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
           <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
-          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="65%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
           <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
@@ -49,11 +49,11 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
           x1="274"
           y1="75"
           x2="274"
-          y2="415"
+          y2="362"
         >
           <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
-          <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
-          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="20%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="60%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
           <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
@@ -63,11 +63,11 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
           x1="317"
           y1="155"
           x2="317"
-          y2="420"
+          y2="370"
         >
           <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
           <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
-          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="60%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
           <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
@@ -150,7 +150,7 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
         x1="190"
         y1="60"
         x2="190"
-        y2="330"
+        y2="320"
         stroke="url(#hero-vgrid-1)"
         strokeWidth="1"
       />
@@ -158,7 +158,7 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
         x1="232"
         y1="65"
         x2="232"
-        y2="360"
+        y2="345"
         stroke="url(#hero-vgrid-2)"
         strokeWidth="1"
       />
@@ -166,7 +166,7 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
         x1="274"
         y1="75"
         x2="274"
-        y2="415"
+        y2="362"
         stroke="url(#hero-vgrid-3)"
         strokeWidth="1"
       />
@@ -174,7 +174,7 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
         x1="317"
         y1="155"
         x2="317"
-        y2="420"
+        y2="370"
         stroke="url(#hero-vgrid-4)"
         strokeWidth="1"
       />
