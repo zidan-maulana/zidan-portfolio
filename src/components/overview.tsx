@@ -14,7 +14,7 @@ export function Overview({ profile }: OverviewProps) {
     <section
       id="about"
       aria-label="Tentang Saya"
-      className="relative overflow-hidden rounded-[24px] bg-surface p-6 sm:p-8 md:p-[44px] scroll-mt-28"
+      className="relative overflow-hidden rounded-[24px] bg-surface p-6 sm:p-8 md:p-[44px]"
     >
       {/* Label Section Sesuai Referensi Portfolik */}
       <div className="font-display text-[16px] font-medium text-muted">

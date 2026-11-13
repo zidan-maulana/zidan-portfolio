@@ -27,10 +27,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Teks Informasi Proyek: Kategori dan Judul */}
       <div className="mt-3 flex flex-col gap-0.5">
-        <span className="text-[12.5px] sm:text-[13px] font-normal text-muted">
+        <span className="text-[14px] font-normal text-muted">
           {project.category}
         </span>
-        <h3 className="font-display text-[15.5px] sm:text-[16.5px] font-medium text-text leading-snug transition-colors group-hover:text-muted">
+        <h3 className="font-display text-[17px] font-medium text-text leading-snug">
           {project.title}
         </h3>
       </div>

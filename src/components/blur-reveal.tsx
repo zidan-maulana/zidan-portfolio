@@ -1,57 +1,54 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 
 interface BlurRevealProps {
   text: string;
   className?: string;
 }
 
+interface WordProps {
+  children: string;
+  progress: MotionValue<number>;
+  range: [number, number];
+}
+
+function Word({ children, progress, range }: WordProps) {
+  const opacity = useTransform(progress, range, [0.2, 1]);
+
+  return (
+    <motion.span
+      style={{ opacity }}
+      className="inline-block mr-[0.28em] text-text motion-reduce:!opacity-100"
+    >
+      {children}
+    </motion.span>
+  );
+}
+
 export function BlurReveal({ text, className = "" }: BlurRevealProps) {
   const containerRef = useRef<HTMLParagraphElement>(null);
-  const [isRevealed, setIsRevealed] = useState(false);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setIsRevealed(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -40px 0px",
-      }
-    );
-
-    observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.85", "start 0.35"],
+  });
 
   const words = text.split(" ");
+  const total = words.length;
+  const step = 1 / total;
 
   return (
     <p ref={containerRef} className={className}>
-      {words.map((word, index) => (
-        <span
-          key={`${word}-${index}`}
-          className="inline-block transition-all duration-500 ease-out motion-reduce:!opacity-100 motion-reduce:!filter-none motion-reduce:!transform-none motion-reduce:!transition-none"
-          style={{
-            filter: isRevealed ? "blur(0px)" : "blur(8px)",
-            opacity: isRevealed ? 1 : 0,
-            transform: isRevealed ? "translateY(0)" : "translateY(4px)",
-            transitionDelay: `${index * 20}ms`,
-            marginRight: "0.28em",
-          }}
-        >
-          {word}
-        </span>
-      ))}
+      {words.map((word, i) => {
+        const start = i * step;
+        const end = Math.min(1, start + step * 1.5);
+        return (
+          <Word key={`${word}-${i}`} progress={scrollYProgress} range={[start, end]}>
+            {word}
+          </Word>
+        );
+      })}
     </p>
   );
 }
