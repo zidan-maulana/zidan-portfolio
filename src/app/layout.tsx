@@ -8,6 +8,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={inter.variable} suppressHydrationWarning>
-      <body className="antialiased min-h-screen bg-page text-text font-sans">
+      <body className="antialiased min-h-screen bg-page text-text font-display">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

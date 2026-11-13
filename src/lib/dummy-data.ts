@@ -9,7 +9,7 @@ export interface Profile {
   };
   headline: string;
   shortBio: string;
-  overview: Array<{
+  overview?: Array<{
     _type: string;
     children: Array<{ _type: string; text: string }>;
   }>;
@@ -23,193 +23,87 @@ export interface Profile {
     };
   };
   email: string;
+  bookingUrl: string;
+  projectsUrl: string;
   socials: Array<{
     label: string;
     url: string;
   }>;
 }
 
-export interface Project {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  category: string;
-  year?: string;
-  cover: {
-    asset: { url: string };
-    alt: string;
-  };
-  summary: string;
-  body?: Array<{
-    _type: string;
-    children: Array<{ _type: string; text: string }>;
-  }>;
-  gallery?: Array<{
-    asset: { url: string };
-    alt: string;
-  }>;
-  stack: string[];
-  liveUrl?: string;
-  repoUrl?: string;
-  featured?: boolean;
-  order?: number;
-}
-
-export interface Experience {
-  _id: string;
-  organization: string;
-  logo?: {
-    asset: { url: string };
-    alt?: string;
-  };
-  role: string;
-  description: string;
-  startDate: string;
-  endDate?: string;
-  location: string;
-}
-
-export interface Education {
-  _id: string;
-  institution: string;
-  degree: string;
-  description: string;
-  startDate: string;
-  endDate?: string;
-  location: string;
-}
-
-export interface Certification {
-  _id: string;
-  title: string;
-  issuer: string;
-  date: string;
-  url?: string;
-}
-
-export interface Tool {
-  _id: string;
+export interface BrandLogo {
+  id: string;
   name: string;
-  descriptor: string;
-  logo?: {
-    asset: { url: string };
-  };
-  url?: string;
-  order: number;
+  svgPath: string;
+  svgViewBox: string;
 }
+
+export const dummyBrands: BrandLogo[] = [
+  {
+    id: "brand-1",
+    name: "Logoipsum 1",
+    svgViewBox: "0 0 140 32",
+    svgPath:
+      "M16 7c-4.97 0-9 4.03-9 9s4.03 9 9 9c2.8 0 5.29-1.28 6.94-3.29l-3.32-2.12C18.6 20.67 17.38 21.2 16 21.2c-2.87 0-5.2-2.33-5.2-5.2s2.33-5.2 5.2-5.2c1.38 0 2.6.53 3.62 1.41l3.32-2.12C21.29 8.28 18.8 7 16 7zm16 1.8h3.8v14.4H32V8.8zm14.6 0c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2 7.8-3.3 7.8-7.2-3.5-7.2-7.8-7.2zm0 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm14.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v2.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm18.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v6.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm13.8-10.8h3.8v14.4h-3.8V8.8zm14.6 0c-2.6 0-4.6 1.1-5.6 2.8V8.8h-3.6v14.4h3.8v-6.9c0-2.2 1.5-3.7 3.6-3.7 2 0 3.2 1.3 3.2 3.4v7.2h3.8v-7.8c0-4-2.3-6.6-5.2-6.6z",
+  },
+  {
+    id: "brand-2",
+    name: "Logoipsum 2",
+    svgViewBox: "0 0 140 32",
+    svgPath:
+      "M6 6h7v7H6V6zm13 0h7v7h-7V6zm-13 13h7v7H6v-7zm13 0h7v7h-7v-7zm13-10.2h3.8v14.4H32V8.8zm14.6 0c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2 7.8-3.3 7.8-7.2-3.5-7.2-7.8-7.2zm0 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm14.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v2.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm18.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v6.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm13.8-10.8h3.8v14.4h-3.8V8.8zm14.6 0c-2.6 0-4.6 1.1-5.6 2.8V8.8h-3.6v14.4h3.8v-6.9c0-2.2 1.5-3.7 3.6-3.7 2 0 3.2 1.3 3.2 3.4v7.2h3.8v-7.8c0-4-2.3-6.6-5.2-6.6z",
+  },
+  {
+    id: "brand-3",
+    name: "Logoipsum 3",
+    svgViewBox: "0 0 140 32",
+    svgPath:
+      "M16 6l3.2 6.5 7.1 1-5.1 5 1.2 7.1-6.4-3.4-6.4 3.4 1.2-7.1-5.1-5 7.1-1L16 6zm16 2.8h3.8v14.4H32V8.8zm14.6 0c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2 7.8-3.3 7.8-7.2-3.5-7.2-7.8-7.2zm0 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm14.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v2.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm18.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v6.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm13.8-10.8h3.8v14.4h-3.8V8.8zm14.6 0c-2.6 0-4.6 1.1-5.6 2.8V8.8h-3.6v14.4h3.8v-6.9c0-2.2 1.5-3.7 3.6-3.7 2 0 3.2 1.3 3.2 3.4v7.2h3.8v-7.8c0-4-2.3-6.6-5.2-6.6z",
+  },
+  {
+    id: "brand-4",
+    name: "Logoipsum 4",
+    svgViewBox: "0 0 140 32",
+    svgPath:
+      "M9 16c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7-7-3.13-7-7zm3 0c0 2.21 1.79 4 4 4s4-1.79 4-4-1.79-4-4-4-4 1.79-4 4zm20-7.2h3.8v14.4H32V8.8zm14.6 0c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2 7.8-3.3 7.8-7.2-3.5-7.2-7.8-7.2zm0 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm14.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v2.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm18.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v6.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm13.8-10.8h3.8v14.4h-3.8V8.8zm14.6 0c-2.6 0-4.6 1.1-5.6 2.8V8.8h-3.6v14.4h3.8v-6.9c0-2.2 1.5-3.7 3.6-3.7 2 0 3.2 1.3 3.2 3.4v7.2h3.8v-7.8c0-4-2.3-6.6-5.2-6.6z",
+  },
+  {
+    id: "brand-5",
+    name: "Logoipsum 5",
+    svgViewBox: "0 0 140 32",
+    svgPath:
+      "M16 6a10 10 0 0 0-10 10 10 10 0 0 0 10 10 10 10 0 0 0 10-10H16V6zm16 2.8h3.8v14.4H32V8.8zm14.6 0c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2 7.8-3.3 7.8-7.2-3.5-7.2-7.8-7.2zm0 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm14.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v2.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm18.4-10.8c-4.3 0-7.8 3.3-7.8 7.2s3.5 7.2 7.8 7.2c2.2 0 4.1-.9 5.4-2.3v6.1h3.6V8.8h-3.6v2.1c-1.3-1.4-3.2-2.1-5.4-2.1zm.6 10.8c-2.3 0-4-1.6-4-3.6s1.7-3.6 4-3.6 4 1.6 4 3.6-1.7 3.6-4 3.6zm13.8-10.8h3.8v14.4h-3.8V8.8zm14.6 0c-2.6 0-4.6 1.1-5.6 2.8V8.8h-3.6v14.4h3.8v-6.9c0-2.2 1.5-3.7 3.6-3.7 2 0 3.2 1.3 3.2 3.4v7.2h3.8v-7.8c0-4-2.3-6.6-5.2-6.6z",
+  },
+];
 
 export const dummyProfile: Profile = {
-  name: "Muhammad Isya Zidan Maulana",
-  role: "Web Developer & Informatics Student",
+  name: "Zidan Maulana",
+  role: "Frontend Developer",
   avatar: {
     asset: {
       url: "/avatar.svg",
     },
-    alt: "Foto profil Muhammad Isya Zidan Maulana",
+    alt: "Foto profil Zidan Maulana",
   },
-  headline: "Crafting responsive, accessible, and high-performance digital experiences.",
-  shortBio: "Informatics undergraduate student and freelance web developer focused on modern web technologies, clean architecture, and delightful user interfaces.",
-  overview: [
-    {
-      _type: "block",
-      children: [
-        {
-          _type: "span",
-          text: "I am an Informatics student with a strong passion for frontend engineering and modern web development. I enjoy transforming complex problems into clean, intuitive, and performant web solutions.",
-        },
-      ],
-    },
-    {
-      _type: "block",
-      children: [
-        {
-          _type: "span",
-          text: "With practical experience in freelance web projects, I build modern web applications using Next.js, TypeScript, and headless CMS platforms. Always eager to learn and collaborate on impactful projects.",
-        },
-      ],
-    },
-  ],
+  headline:
+    "I build modern, high-performance digital experiences that drive real impact.",
+  shortBio:
+    "Informatics student and freelance web developer crafting digital solutions that scale smoothly, engage users, and deliver real value.",
   location: "Jakarta",
   timezone: "Asia/Jakarta",
   availability: "Open for new projects",
-  showAvailability: true,
+  showAvailability: false,
   cv: {
     asset: {
       url: "/dummy-cv.pdf",
     },
   },
   email: "zidan@example.com",
+  bookingUrl: "mailto:zidan@example.com",
+  projectsUrl: "#projects",
   socials: [
     { label: "GitHub", url: "https://github.com" },
     { label: "LinkedIn", url: "https://linkedin.com" },
     { label: "Instagram", url: "https://instagram.com" },
   ],
 };
-
-export const dummyProjects: Project[] = [
-  {
-    _id: "project-1",
-    title: "E-Commerce Platform",
-    slug: { current: "e-commerce-platform" },
-    category: "Web Development",
-    year: "2026",
-    cover: {
-      asset: { url: "/avatar.svg" },
-      alt: "E-Commerce Platform Preview",
-    },
-    summary: "A modern headless e-commerce store with seamless checkout experience.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com",
-    featured: true,
-    order: 1,
-  },
-];
-
-export const dummyExperiences: Experience[] = [
-  {
-    _id: "exp-1",
-    organization: "Freelance Developer",
-    role: "Frontend Developer",
-    description: "Developing custom web applications and interactive landing pages for various clients.",
-    startDate: "2024",
-    endDate: undefined,
-    location: "Remote",
-  },
-];
-
-export const dummyEducations: Education[] = [
-  {
-    _id: "edu-1",
-    institution: "Universitas",
-    degree: "S1 Teknik Informatika",
-    description: "Fokus pada rekayasa perangkat lunak dan arsitektur sistem informasi web.",
-    startDate: "2023",
-    endDate: undefined,
-    location: "Jakarta, Indonesia",
-  },
-];
-
-export const dummyCertifications: Certification[] = [];
-
-export const dummyTools: Tool[] = [
-  {
-    _id: "tool-1",
-    name: "Next.js",
-    descriptor: "Frontend React Framework",
-    order: 1,
-  },
-  {
-    _id: "tool-2",
-    name: "TypeScript",
-    descriptor: "Typed JavaScript",
-    order: 2,
-  },
-  {
-    _id: "tool-3",
-    name: "Tailwind CSS",
-    descriptor: "Utility-first CSS Framework",
-    order: 3,
-  },
-];
-

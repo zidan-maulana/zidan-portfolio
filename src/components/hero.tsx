@@ -8,115 +8,102 @@ interface HeroProps {
 export function Hero({ profile }: HeroProps) {
   return (
     <section
-      id="hero"
+      id="home"
       aria-label="Profil dan Pengantar"
-      className="w-full max-w-[1040px] mx-auto px-4 mt-3 mb-6"
+      className="relative overflow-hidden rounded-[20px] bg-surface p-6 sm:p-8 md:p-[44px]"
     >
-      <div className="relative overflow-hidden rounded-[28px] sm:rounded-[32px] border border-border bg-surface p-6 sm:p-8 md:p-12">
-        {/* Baris Atas: Avatar, Nama, Jabatan di Kiri dan Badge Ketersediaan di Kanan */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 w-full">
-          {/* Avatar dan Identitas */}
-          <div className="flex items-center gap-4">
-            <div className="relative h-[72px] w-[72px] sm:h-[80px] sm:w-[80px] shrink-0 overflow-hidden rounded-full border border-border/80">
-              <Image
-                src={profile.avatar.asset.url}
-                alt={profile.avatar.alt}
-                fill
-                sizes="(max-width: 640px) 72px, 80px"
-                className="object-cover"
-                priority
-              />
+      {/* Dekorasi Grid Samar di Sisi Kanan Bawah */}
+      <div
+        className="pointer-events-none absolute bottom-0 right-0 z-0 h-[180px] w-[200px] select-none overflow-hidden [mask-image:radial-gradient(ellipse_at_bottom_right,black_40%,transparent_80%)]"
+        aria-hidden="true"
+      >
+        <div className="grid h-full w-full grid-cols-4 grid-rows-4">
+          <div className="border-b border-l border-border/30 bg-page/10" />
+          <div className="border-b border-l border-border/30" />
+          <div className="border-b border-l border-border/30 bg-page/20" />
+          <div className="border-b border-l border-border/30" />
+          <div className="border-b border-l border-border/30" />
+          <div className="border-b border-l border-border/30 bg-page/15" />
+          <div className="border-b border-l border-border/30" />
+          <div className="border-b border-l border-border/30" />
+          <div className="border-b border-l border-border/30 bg-page/25" />
+          <div className="border-b border-l border-border/30" />
+          <div className="border-b border-l border-border/30 bg-page/10" />
+          <div className="border-b border-l border-border/30" />
+          <div className="border-l border-border/30" />
+          <div className="border-l border-border/30 bg-page/10" />
+          <div className="border-l border-border/30" />
+          <div className="border-l border-border/30 bg-page/20" />
+        </div>
+      </div>
+
+      {/* Konten Utama Hero (Rata Kiri, Mengikuti Garis Vertikal yang Sama) */}
+      <div className="relative z-10 flex flex-col items-start text-left">
+        {/* Identitas Profil: Avatar Bulat 90x90px dan Nama/Jabatan */}
+        <div className="flex items-center gap-4 sm:gap-4.5">
+          <div className="relative h-[90px] w-[90px] shrink-0 overflow-hidden rounded-full border border-border/80 shadow-xs">
+            <Image
+              src={profile.avatar.asset.url}
+              alt={profile.avatar.alt}
+              fill
+              sizes="90px"
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <div className="font-display text-[20px] font-medium leading-tight tracking-[-0.01em] text-text">
+              {profile.name}
             </div>
-            <div>
-              <div className="text-[18px] sm:text-[20px] font-semibold text-text tracking-[-0.01em] leading-tight">
-                {profile.name}
-              </div>
-              <div className="text-[14px] text-muted font-normal mt-0.5">
-                {profile.role}
-              </div>
+            <div className="mt-1 text-[14px] font-medium text-muted">
+              {profile.role}
             </div>
           </div>
-
-          {/* Badge Ketersediaan */}
-          {profile.showAvailability && profile.availability && (
-            <div className="self-start sm:self-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3.5 py-1.5 text-[12px] font-medium text-accent">
-                <span
-                  className="h-2 w-2 rounded-full bg-accent"
-                  aria-hidden="true"
-                />
-                {profile.availability}
-              </span>
-            </div>
-          )}
         </div>
 
-        {/* Area Konten Utama dan Grid Garis Arsitektural */}
-        <div className="relative mt-8 sm:mt-10 md:mt-12">
-          {/* Grid Dekoratif Garis Tipis di Sisi Kanan (Khusus Layar Desktop) */}
-          <div
-            className="hidden md:block absolute right-0 top-0 bottom-0 w-[38%] pointer-events-none select-none"
-            aria-hidden="true"
+        {/* Headline H1: Inter Display 28px dengan pemenggalan 2 baris seimbang */}
+        <div className="mt-6 sm:mt-7">
+          <h1 className="max-w-[580px] font-display text-[28px] font-normal tracking-[-0.015em] leading-[36px] sm:leading-[37px] text-text">
+            {profile.headline.includes("digital experiences") ? (
+              <>
+                I build modern, high-performance digital
+                <br className="hidden sm:inline" /> experiences that drive real impact.
+              </>
+            ) : (
+              profile.headline
+            )}
+          </h1>
+        </div>
+
+        {/* Deskripsi Singkat Bio: Font size 16px dengan jarak lebih rapat dari head */}
+        <div className="mt-2.5 sm:mt-3">
+          <p className="max-w-[620px] text-[16px] font-normal leading-[25px] sm:leading-[26px] text-muted">
+            {profile.shortBio.includes("solutions that scale") ? (
+              <>
+                Informatics student and freelance web developer crafting digital solutions that
+                <br className="hidden sm:inline" /> scale smoothly, engage users, and deliver real value.
+              </>
+            ) : (
+              profile.shortBio
+            )}
+          </p>
+        </div>
+
+        {/* Tombol Aksi Sesuai PRD: Get in Touch dan Download CV */}
+        <div className="mt-6 sm:mt-7 flex flex-row items-center gap-3">
+          <a
+            href={profile.email ? `mailto:${profile.email}` : "mailto:zidan@example.com"}
+            className="inline-flex h-[40px] items-center justify-center rounded-[11px] bg-btn-primary-bg px-5 text-[13.5px] font-medium text-btn-primary-text shadow-[0_3px_10px_rgba(0,0,0,0.16)] dark:shadow-none transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
-            <div className="h-full w-full grid grid-cols-4">
-              <div className="border-l border-border/50 h-full flex flex-col">
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="flex-1" />
-              </div>
-              <div className="border-l border-border/50 h-full flex flex-col">
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="flex-1" />
-              </div>
-              <div className="border-l border-border/50 h-full flex flex-col">
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="flex-1" />
-              </div>
-              <div className="border-l border-border/50 h-full flex flex-col">
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="border-b border-border/50 h-[72px]" />
-                <div className="flex-1" />
-              </div>
-            </div>
-          </div>
-
-          {/* Teks Headline, Bio, dan Tombol */}
-          <div className="relative z-10 max-w-[620px]">
-            {/* Pernyataan H1 */}
-            <h1 className="text-[30px] sm:text-[38px] md:text-[44px] font-normal tracking-[-0.02em] leading-[1.18] text-text">
-              {profile.headline}
-            </h1>
-
-            {/* Paragraf Bio Singkat */}
-            <p className="mt-4 sm:mt-5 text-[15px] sm:text-[16px] font-normal leading-[1.6] text-muted max-w-[560px]">
-              {profile.shortBio}
-            </p>
-
-            {/* Tombol Aksi */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex h-[46px] w-full sm:w-auto items-center justify-center rounded-[14px] bg-btn-primary-bg px-6 text-[14px] font-medium text-btn-primary-text transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
-              >
-                Get in Touch
-              </a>
-              {profile.cv?.asset?.url && (
-                <a
-                  href={profile.cv.asset.url}
-                  download
-                  className="flex h-[46px] w-full sm:w-auto items-center justify-center rounded-[14px] border border-btn-secondary-border bg-btn-secondary-bg px-6 text-[14px] font-medium text-btn-secondary-text shadow-xs transition-all hover:bg-page active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
-                >
-                  Download CV
-                </a>
-              )}
-            </div>
-          </div>
+            Get in Touch
+          </a>
+          <a
+            href={profile.cv.asset.url}
+            download
+            className="inline-flex h-[40px] items-center justify-center rounded-[11px] border border-border/80 bg-surface px-5 text-[13.5px] font-medium text-text shadow-xs transition-all hover:bg-page active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+          >
+            Download CV
+          </a>
         </div>
       </div>
     </section>

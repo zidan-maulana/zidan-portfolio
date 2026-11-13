@@ -8,8 +8,8 @@ interface LiveClockProps {
 }
 
 export function LiveClock({
-  timezone = "Asia/Jakarta",
-  location = "Jakarta",
+  timezone = "America/Los_Angeles",
+  location = "Los Angeles",
 }: LiveClockProps) {
   const [timeString, setTimeString] = useState<string>("");
 
@@ -35,13 +35,13 @@ export function LiveClock({
 
   return (
     <div
-      className="inline-flex items-center text-[13px] select-none"
+      className="inline-flex items-center text-[13.5px] sm:text-[14px] whitespace-nowrap shrink-0 select-none"
       aria-label={`Waktu saat ini di ${location}`}
     >
       <span className="tabular-nums font-medium text-text">
-        {timeString || "--:--:--"}
+        {timeString || "--:--:-- --"}
       </span>
-      <span className="ml-1.5 text-muted font-normal">
+      <span className="ml-2 text-muted font-normal text-[13px] sm:text-[13.5px]">
         {location}
       </span>
     </div>

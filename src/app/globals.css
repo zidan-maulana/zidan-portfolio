@@ -1,41 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --page: #F4F4F4;
+  --page: #FFFFFF;
   --surface: #FFFFFF;
-  --text: #0A0A0A;
+  --nav-bg: #F5F5F5;
+  --text: #0E0E0E;
   --muted: #666666;
-  --border: #E5E5E5;
+  --muted-light: #949494;
+  --border: #E8E8E8;
+  --border-subtle: #EEEEEE;
   --accent: #178D00;
   --accent-soft: #EAF7E6;
-  --btn-primary-bg: #0A0A0A;
+  --btn-primary-bg: #0E0E0E;
   --btn-primary-text: #FFFFFF;
   --btn-secondary-bg: #FFFFFF;
-  --btn-secondary-text: #0A0A0A;
+  --btn-secondary-text: #0E0E0E;
   --btn-secondary-border: #E5E5E5;
 }
 
 .dark {
   --page: #0A0A0A;
   --surface: #141414;
+  --nav-bg: #1A1A1A;
   --text: #F5F5F5;
   --muted: #999999;
-  --border: #262626;
-  --accent: #178D00;
+  --muted-light: #6E6E6E;
+  --border: #242424;
+  --border-subtle: #1C1C1C;
+  --accent: #22C55E;
   --accent-soft: #0E2909;
   --btn-primary-bg: #F5F5F5;
-  --btn-primary-text: #0A0A0A;
+  --btn-primary-text: #0E0E0E;
   --btn-secondary-bg: #141414;
   --btn-secondary-text: #F5F5F5;
-  --btn-secondary-border: #262626;
+  --btn-secondary-border: #282828;
 }
 
 @theme {
   --color-page: var(--page);
   --color-surface: var(--surface);
+  --color-nav-bg: var(--nav-bg);
   --color-text: var(--text);
   --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
   --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-btn-primary-bg: var(--btn-primary-bg);
@@ -44,7 +53,15 @@
   --color-btn-secondary-text: var(--btn-secondary-text);
   --color-btn-secondary-border: var(--btn-secondary-border);
 
-  --font-inter: var(--font-inter), sans-serif;
+  --font-sans: 'Inter Display', var(--font-inter), sans-serif;
+  --font-inter: 'Inter Display', var(--font-inter), sans-serif;
+  --font-display: 'Inter Display', var(--font-inter), sans-serif;
+}
+
+.font-display {
+  font-family: 'Inter Display', var(--font-inter), sans-serif;
+  font-feature-settings: 'opsz' 32;
+  font-variation-settings: 'opsz' 32;
 }
 
 @layer base {
@@ -52,9 +69,35 @@
     border-color: var(--border);
   }
 
+  html,
   body {
     background-color: var(--page);
     color: var(--text);
     min-height: 100vh;
+    font-family: 'Inter Display', var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-feature-settings: 'opsz' 32;
+    font-variation-settings: 'opsz' 32;
+  }
+}
+
+@keyframes marqueeSlow {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeSlow 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
   }
 }
