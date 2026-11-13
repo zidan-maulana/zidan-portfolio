@@ -21,7 +21,7 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-border/80 bg-surface text-muted shadow-xs shrink-0"
+        className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border-[1.5px] border-btn-secondary-border bg-surface text-muted shadow-xs shrink-0"
         aria-label="Memuat pengalih tema"
         disabled
       >
@@ -36,7 +36,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-border/80 bg-surface text-text shadow-xs transition-colors hover:bg-nav-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
+      className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border-[1.5px] border-btn-secondary-border bg-surface text-text shadow-xs transition-colors hover:bg-page focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
       aria-label={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
       title={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
     >
