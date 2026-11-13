@@ -88,14 +88,14 @@ export function Hero({ profile }: HeroProps) {
         <div className="mt-6 sm:mt-7 flex flex-row items-center gap-3">
           <a
             href={profile.email ? `mailto:${profile.email}` : "mailto:zidan@example.com"}
-            className="inline-flex h-[40px] items-center justify-center rounded-[11px] border border-btn-primary-border bg-btn-primary-bg px-5 font-display text-[13.5px] font-medium text-btn-primary-text shadow-btn-primary transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="inline-flex h-[40px] items-center justify-center rounded-[13px] border border-btn-primary-border bg-btn-primary-bg px-5 font-display text-[13.5px] font-medium text-btn-primary-text shadow-btn-primary transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             Get in Touch
           </a>
           <a
             href={profile.cv.asset.url}
             download
-            className="inline-flex h-[40px] items-center justify-center rounded-[11px] border-[1.5px] border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="inline-flex h-[40px] items-center justify-center rounded-[13px] border-[1.5px] border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             Download CV
           </a>
