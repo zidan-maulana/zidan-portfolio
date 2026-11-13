@@ -16,7 +16,7 @@ export function Hero({ profile }: HeroProps) {
     >
       {/* Dekorasi Grid Minimalis Samar di Pojok Kanan Bawah */}
       <div
-        className="pointer-events-none absolute -bottom-[35px] -right-[25px] z-0 select-none overflow-hidden"
+        className="pointer-events-none absolute -bottom-[35px] right-2 z-0 select-none overflow-hidden sm:right-3"
         aria-hidden="true"
       >
         <HeroGrid className="h-[315px] w-[260px] opacity-60 sm:h-[420px] sm:w-[347px] sm:opacity-100" />
