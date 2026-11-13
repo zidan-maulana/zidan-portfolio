@@ -38,3 +38,4 @@ export function Footer({ name = "Zidan Maulana" }: FooterProps) {
     </footer>
   );
 }
+

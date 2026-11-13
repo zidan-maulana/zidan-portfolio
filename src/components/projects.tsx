@@ -7,6 +7,9 @@ interface ProjectsProps {
 }
 
 export function Projects({ projects }: ProjectsProps) {
+  // Hanya menampilkan maksimal 4 proyek di section Projects halaman beranda
+  const displayedProjects = projects.slice(0, 4);
+
   return (
     <section
       id="projects"
@@ -23,9 +26,9 @@ export function Projects({ projects }: ProjectsProps) {
         </p>
       </div>
 
-      {/* Grid 2 Kolom Kartu Proyek */}
+      {/* Grid 2 Kolom Kartu Proyek (Maksimal 4 Proyek) */}
       <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-5 sm:gap-y-7">
-        {projects.map((project) => (
+        {displayedProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>

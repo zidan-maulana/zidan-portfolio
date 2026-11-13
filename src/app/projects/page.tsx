@@ -43,7 +43,7 @@ export default function ProjectsPage() {
       <div className="w-full max-w-[756px] flex flex-col items-center relative z-10 pt-3 sm:pt-4">
         {/* Sasis Abu-abu Menampung Card Grid Proyek */}
         <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
-          <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-4 sm:px-6 md:px-7 py-6 sm:py-8 md:py-[44px]">
+          <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-4 sm:px-6 md:px-7 pt-4 sm:pt-5 md:pt-6 pb-6 sm:pb-8 md:pb-[44px]">
             {/* Grid 2 Kolom Seluruh Proyek dengan komposisi persis section Projects */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-5 sm:gap-y-7">
               {dummyProjects.map((project) => (
