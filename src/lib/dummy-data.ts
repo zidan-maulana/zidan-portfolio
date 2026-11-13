@@ -80,7 +80,12 @@ export const dummyBrands: BrandLogo[] = [
 export const dummyProfile: Profile = {
   name: "Zidan Maulana",
   role: "Frontend Developer",
-  roles: ["Frontend Developer", "Full Stack Developer", "AI Engineer"],
+  roles: [
+    "Frontend Developer",
+    "Full Stack Developer",
+    "AI Engineer",
+    "UI/UX Designer",
+  ],
   avatar: {
     asset: {
       url: "/profile-picture.jpeg",
