@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --page: #F4F4F4;
+  --surface: #FFFFFF;
+  --text: #0A0A0A;
+  --muted: #666666;
+  --border: #E5E5E5;
+  --accent: #178D00;
+  --accent-soft: #EAF7E6;
+  --btn-primary-bg: #0A0A0A;
+  --btn-primary-text: #FFFFFF;
+  --btn-secondary-bg: #FFFFFF;
+  --btn-secondary-text: #0A0A0A;
+  --btn-secondary-border: #E5E5E5;
+}
+
+.dark {
+  --page: #0A0A0A;
+  --surface: #141414;
+  --text: #F5F5F5;
+  --muted: #999999;
+  --border: #262626;
+  --accent: #178D00;
+  --accent-soft: #0E2909;
+  --btn-primary-bg: #F5F5F5;
+  --btn-primary-text: #0A0A0A;
+  --btn-secondary-bg: #141414;
+  --btn-secondary-text: #F5F5F5;
+  --btn-secondary-border: #262626;
+}
+
+@theme {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-btn-primary-bg: var(--btn-primary-bg);
+  --color-btn-primary-text: var(--btn-primary-text);
+  --color-btn-secondary-bg: var(--btn-secondary-bg);
+  --color-btn-secondary-text: var(--btn-secondary-text);
+  --color-btn-secondary-border: var(--btn-secondary-border);
+
+  --font-inter: var(--font-inter), sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--page);
+    color: var(--text);
+    min-height: 100vh;
+  }
+}
