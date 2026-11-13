@@ -48,7 +48,7 @@ export default function HomePage() {
       */}
       <div className="w-full max-w-[756px] flex flex-col gap-2 relative z-10 pt-3 sm:pt-4">
         {/* Modul 1: Sasis Abu-abu Menampung Latar Penghubung dan Card Hero */}
-        <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[1.5px] pt-[56px] sm:pt-[62px]">
+        <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
           <Hero profile={dummyProfile} />
         </div>
 
