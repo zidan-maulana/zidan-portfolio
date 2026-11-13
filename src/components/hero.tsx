@@ -73,10 +73,10 @@ export function Hero({ profile }: HeroProps) {
         {/* Deskripsi Singkat Bio: Font size 16px dengan jarak lebih rapat dari head */}
         <div className="mt-2.5 sm:mt-3">
           <p className="max-w-[620px] text-[16px] font-normal leading-[25px] sm:leading-[26px] text-muted">
-            {profile.shortBio.includes("solutions that scale") ? (
+            {profile.shortBio.includes("solutions") ? (
               <>
-                Informatics student and freelance web developer crafting digital solutions that
-                <br className="hidden sm:inline" /> scale smoothly, engage users, and deliver real value.
+                Informatics student and freelance developer crafting digital solutions
+                <br className="hidden sm:inline" /> that engage users and deliver real value.
               </>
             ) : (
               profile.shortBio

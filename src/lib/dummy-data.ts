@@ -94,7 +94,7 @@ export const dummyProfile: Profile = {
   headline:
     "I build modern, high-performance digital experiences that drive real impact.",
   shortBio:
-    "Informatics student and freelance web developer crafting digital solutions that scale smoothly, engage users, and deliver real value.",
+    "Informatics student and freelance developer crafting digital solutions that engage users and deliver real value.",
   location: "Jakarta",
   timezone: "Asia/Jakarta",
   availability: "Open for new projects",

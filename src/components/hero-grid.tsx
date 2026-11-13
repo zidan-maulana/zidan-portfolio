@@ -71,18 +71,18 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
           <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
-        {/* Gradasi Horizontal Panjang: Memudar halus di kedua ujung */}
+        {/* Gradasi Horizontal Panjang: Memudar halus di kedua ujung, berhenti di huruf g kata digital */}
         <linearGradient
           id="hero-hgrid-long"
           gradientUnits="userSpaceOnUse"
-          x1="20"
+          x1="55"
           y1="180"
           x2="347"
           y2="180"
         >
           <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
-          <stop offset="18%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
-          <stop offset="82%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="85%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
           <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
@@ -182,7 +182,7 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
       {/* 2 Garis Horizontal */}
       {/* Garis Horizontal 1: Garis panjang melintasi hampir seluruh lebar aset */}
       <line
-        x1="20"
+        x1="55"
         y1="180"
         x2="347"
         y2="180"
