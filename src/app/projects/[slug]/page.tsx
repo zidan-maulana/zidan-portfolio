@@ -1,8 +1,9 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import { dummyProjects } from "@/lib/dummy-data";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { dummyProfile, dummyProjects } from "@/lib/dummy-data";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -24,12 +25,12 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Proyek Tidak Ditemukan",
+      title: "Project Not Found",
     };
   }
 
   return {
-    title: `${project.title} | Portofolio Zidan Maulana`,
+    title: `${project.title} | ${dummyProfile.name}`,
     description: project.summary,
   };
 }
@@ -43,106 +44,131 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-page text-text flex flex-col items-center justify-start px-3 sm:px-6 pt-4 pb-12 sm:pt-5">
-      <div className="w-full max-w-[756px] rounded-[22px] bg-nav-bg p-[2px] flex flex-col gap-[2px]">
-        {/* Navigasi Kembali */}
-        <div className="flex h-[64px] w-full items-center justify-between px-6 bg-transparent">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-[14px] font-medium text-muted transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text rounded-md px-2 py-1"
-          >
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="19" y1="12" x2="5" y2="12" />
-              <polyline points="12 19 5 12 12 5" />
-            </svg>
-            <span>Kembali ke Beranda</span>
-          </Link>
-          <span className="text-[13px] text-muted">{project.category}</span>
-        </div>
+    <div className="min-h-screen bg-page text-text flex flex-col items-center justify-start px-3 sm:px-6 pb-12">
+      {/*
+        Lapisan Penutup Atas (Canopy) - z-40:
+        Menutup area di atas navbar dan ruang di luar sudut lengkungan atas
+      */}
+      <div
+        className="fixed -top-[100px] left-0 right-0 h-[140px] sm:h-[144px] bg-page z-40 pointer-events-none"
+        aria-hidden="true"
+      />
 
-        {/* Konten Detail Proyek */}
-        <article className="rounded-[20px] bg-surface p-6 sm:p-8 md:p-[44px]">
-          {/* Header Judul dan Kategori */}
-          <div className="flex flex-col gap-2">
-            <span className="text-[13px] font-medium text-muted">
-              {project.category} {project.year ? `· ${project.year}` : ""}
-            </span>
-            <h1 className="font-display text-[26px] sm:text-[32px] font-medium tracking-[-0.015em] text-text leading-tight">
+      {/*
+        Fixed Navbar Layer - z-50:
+        Navbar kapsul konsisten dengan glassmorphism dan rounded-[24px]
+      */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
+        <div className="w-full max-w-[756px] pt-3 sm:pt-4 pointer-events-auto">
+          <Header
+            timezone={dummyProfile.timezone}
+            location={dummyProfile.location}
+            socials={dummyProfile.socials}
+          />
+        </div>
+      </div>
+
+      {/*
+        Konten Utama yang Mengalir (z-10):
+        Mengikuti sistem Latar Penghubung yang identik dengan HomePage dan ProjectsPage
+      */}
+      <div className="w-full max-w-[756px] flex flex-col items-center relative z-10 pt-3 sm:pt-4">
+        {/* Sasis Abu-abu Menampung Card Detail Proyek */}
+        <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
+          <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-6 sm:px-8 md:px-[44px] pt-6 sm:pt-8 md:pt-10 pb-8 sm:pb-10 md:pb-12">
+            {/* Metadata Kategori dan Periode Waktu */}
+            <div className="text-[13px] sm:text-[14px] font-normal text-muted">
+              {project.category}
+              {project.timeline
+                ? ` · ${project.timeline}`
+                : project.year
+                ? ` · ${project.year}`
+                : ""}
+            </div>
+
+            {/* Judul Utama Proyek */}
+            <h1 className="mt-2 font-display text-[26px] sm:text-[32px] md:text-[36px] font-medium tracking-[-0.02em] text-text leading-tight">
               {project.title}
             </h1>
-          </div>
 
-          {/* Cover Gambar Proyek */}
-          <div className="mt-6 sm:mt-8 relative aspect-[16/10] w-full overflow-hidden rounded-[16px] bg-nav-bg border border-border/80">
-            <Image
-              src={project.cover.asset.url}
-              alt={project.cover.alt}
-              fill
-              unoptimized
-              priority
-              className="object-cover"
-            />
-          </div>
+            {/* Ringkasan / Deskripsi Proyek */}
+            <p className="mt-2.5 max-w-[620px] text-[14px] sm:text-[14.5px] font-normal text-muted leading-relaxed">
+              {project.summary}
+            </p>
 
-          {/* Ringkasan Proyek */}
-          <div className="mt-8 text-[16px] sm:text-[17px] leading-[26px] sm:leading-[28px] text-muted">
-            <p>{project.summary}</p>
-          </div>
+            {/* Tombol Preview Project */}
+            {project.liveUrl && (
+              <div className="mt-5 sm:mt-6">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-[38px] sm:h-[40px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface px-5 font-display text-[13.5px] sm:text-[14px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+                >
+                  Preview Project
+                </a>
+              </div>
+            )}
 
-          {/* Tumpukan Teknologi (Tech Stack) */}
-          {project.stack && project.stack.length > 0 && (
-            <div className="mt-8 pt-8 border-t border-border">
-              <h2 className="font-display text-[15px] font-medium text-text mb-3">
-                Teknologi yang Digunakan
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center rounded-full border border-border px-3 py-1 text-[13px] font-medium text-muted bg-nav-bg/60"
+            {/* Gambar Cover Utama */}
+            <div className="mt-7 sm:mt-8 relative aspect-[16/10] w-full overflow-hidden rounded-[14px] sm:rounded-[16px] bg-nav-bg border border-border/70">
+              <Image
+                src={project.cover.asset.url}
+                alt={project.cover.alt}
+                fill
+                unoptimized
+                priority
+                className="object-cover"
+              />
+            </div>
+
+            {/* Bagian Tahapan Proyek (Ideation & Conceptual, Production & Execution) */}
+            {project.sections && project.sections.length > 0 && (
+              <div className="mt-2 flex flex-col gap-8 sm:gap-10">
+                {project.sections.map((section, idx) => (
+                  <section
+                    key={`${section.tag}-${idx}`}
+                    className="flex flex-col pt-6 sm:pt-8"
                   >
-                    {tech}
-                  </span>
+                    <span className="font-display text-[13px] sm:text-[13.5px] font-medium text-text">
+                      {section.tag}
+                    </span>
+                    <h2 className="mt-2 font-display text-[18px] sm:text-[20px] md:text-[21px] font-medium text-text leading-snug">
+                      {section.title}
+                    </h2>
+                    <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted font-normal leading-relaxed">
+                      {section.description}
+                    </p>
+
+                    {/* Galeri Gambar 2 Kolom untuk Tahapan Ideation */}
+                    {section.images && section.images.length > 0 && (
+                      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                        {section.images.map((img, imgIdx) => (
+                          <div
+                            key={imgIdx}
+                            className="relative aspect-[4/3] w-full overflow-hidden rounded-[14px] bg-nav-bg border border-border/70"
+                          >
+                            <Image
+                              src={img.asset.url}
+                              alt={img.alt}
+                              fill
+                              unoptimized
+                              className="object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </section>
                 ))}
               </div>
-            </div>
-          )}
+            )}
+          </main>
+        </div>
 
-          {/* Tombol Tautan Aksi: Live Demo dan Repositori */}
-          <div className="mt-8 pt-8 border-t border-border flex flex-wrap items-center gap-3">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-[40px] items-center justify-center rounded-[13px] border border-btn-primary-border bg-btn-primary-bg px-5 font-display text-[13.5px] font-medium text-btn-primary-text shadow-btn-primary transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
-              >
-                Kunjungi Live Demo
-              </a>
-            )}
-            {project.repoUrl && (
-              <a
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-[40px] items-center justify-center rounded-[13px] border border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
-              >
-                Lihat Repositori
-              </a>
-            )}
-          </div>
-        </article>
+        {/* Footer Sesuai Gambar Referensi */}
+        <Footer name={dummyProfile.name} />
       </div>
     </div>
   );
 }
-

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <defs>
+    <linearGradient id="oh-dt1" x1="0" y1="0" x2="600" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FAFAFA" />
+      <stop offset="100%" stop-color="#E5E5E5" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#oh-dt1)" />
+  <rect x="180" y="70" width="240" height="310" rx="18" fill="#171717" stroke="#262626" stroke-width="2" />
+  <text x="300" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-style="italic" fill="#FAFAFA">Editorial</text>
+  <text x="300" y="245" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#FAFAFA">&amp;</text>
+  <text x="300" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#A3A3A3" letter-spacing="0.2em">SCENES</text>
+</svg>

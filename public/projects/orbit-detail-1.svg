@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <defs>
+    <linearGradient id="orb-dt1" x1="0" y1="0" x2="600" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#orb-dt1)" />
+  <rect x="120" y="80" width="360" height="290" rx="16" fill="#27272A" stroke="#3F3F46" stroke-width="1.5" />
+  <rect x="145" y="115" width="310" height="15" rx="4" fill="#3F3F46" />
+  <rect x="145" y="145" width="180" height="10" rx="3" fill="#52525B" />
+  <rect x="145" y="180" width="90" height="60" rx="8" fill="#18181B" stroke="#3F3F46" />
+  <rect x="255" y="180" width="90" height="60" rx="8" fill="#18181B" stroke="#3F3F46" />
+  <rect x="365" y="180" width="90" height="60" rx="8" fill="#18181B" stroke="#3F3F46" />
+  <path d="M145 310 Q 220 270, 300 290 T 455 250" fill="none" stroke="#22C55E" stroke-width="3" />
+</svg>

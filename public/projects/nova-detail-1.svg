@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <defs>
+    <linearGradient id="nov-dt1" x1="0" y1="0" x2="600" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E5E7EB" />
+      <stop offset="100%" stop-color="#D1D5DB" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#nov-dt1)" />
+  <g transform="translate(180, 105)">
+    <rect width="240" height="240" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2" />
+    <circle cx="80" cy="80" r="12" fill="#111827" />
+    <circle cx="120" cy="80" r="12" fill="#111827" />
+    <circle cx="160" cy="80" r="12" fill="#111827" />
+    <circle cx="80" cy="120" r="12" fill="#111827" />
+    <circle cx="120" cy="120" r="16" fill="#111827" />
+    <circle cx="160" cy="120" r="12" fill="#111827" />
+    <circle cx="80" cy="160" r="12" fill="#111827" />
+    <circle cx="120" cy="160" r="12" fill="#111827" />
+    <circle cx="160" cy="160" r="12" fill="#111827" />
+  </g>
+</svg>

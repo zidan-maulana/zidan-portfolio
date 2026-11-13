@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" fill="none">
+  <defs>
+    <linearGradient id="orb-dt2" x1="0" y1="0" x2="600" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#27272A" />
+      <stop offset="100%" stop-color="#18181B" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="450" fill="url(#orb-dt2)" />
+  <circle cx="300" cy="225" r="120" stroke="#3F3F46" stroke-width="2" stroke-dasharray="6 6" />
+  <circle cx="300" cy="225" r="70" stroke="#52525B" stroke-width="1.5" />
+  <circle cx="300" cy="225" r="28" fill="#22C55E" />
+  <circle cx="385" cy="180" r="14" fill="#3B82F6" />
+  <circle cx="215" cy="270" r="10" fill="#EAB308" />
+</svg>
