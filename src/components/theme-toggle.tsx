@@ -36,7 +36,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-colors hover:bg-page focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
+      className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-colors hover:bg-btn-secondary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
       aria-label={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
       title={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
     >

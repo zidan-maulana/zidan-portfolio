@@ -17,6 +17,7 @@
   --btn-secondary-bg: #FFFFFF;
   --btn-secondary-text: #0E0E0E;
   --btn-secondary-border: #E5E5E5;
+  --btn-secondary-hover: #F0F0F0;
   --btn-primary-shadow: 0 4px 14px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -39,6 +40,7 @@
   --btn-secondary-bg: #141414;
   --btn-secondary-text: #F5F5F5;
   --btn-secondary-border: #282828;
+  --btn-secondary-hover: #222222;
   --btn-primary-shadow: 0 4px 14px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -61,6 +63,7 @@
   --color-btn-secondary-bg: var(--btn-secondary-bg);
   --color-btn-secondary-text: var(--btn-secondary-text);
   --color-btn-secondary-border: var(--btn-secondary-border);
+  --color-btn-secondary-hover: var(--btn-secondary-hover);
   --shadow-btn-primary: var(--btn-primary-shadow);
   --shadow-btn-secondary: var(--btn-secondary-shadow);
   --shadow-btn-icon: var(--btn-icon-shadow);
