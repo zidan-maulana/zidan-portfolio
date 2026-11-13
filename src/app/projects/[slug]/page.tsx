@@ -133,10 +133,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                     <span className="font-display text-[13px] sm:text-[13.5px] font-medium text-text">
                       {section.tag}
                     </span>
-                    <h2 className="mt-2 font-display text-[18px] font-medium text-text leading-snug">
+                    <h2 className="mt-2.5 font-display text-[20px] font-medium text-text leading-snug">
                       {section.title}
                     </h2>
-                    <p className="mt-2 text-[13.5px] sm:text-[14px] text-muted font-normal leading-relaxed">
+                    <p className="mt-3.5 text-[14px] text-muted font-normal leading-relaxed">
                       {section.description}
                     </p>
 
