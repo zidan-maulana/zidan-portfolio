@@ -81,7 +81,7 @@ export const dummyProfile: Profile = {
   role: "Frontend Developer",
   avatar: {
     asset: {
-      url: "/profile-picture.png",
+      url: "/profile-picture.jpeg",
     },
     alt: "Foto profil Zidan Maulana",
   },
