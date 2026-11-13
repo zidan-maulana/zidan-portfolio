@@ -124,11 +124,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
             {/* Bagian Tahapan Proyek (Ideation & Conceptual, Production & Execution) */}
             {project.sections && project.sections.length > 0 && (
-              <div className="mt-2 flex flex-col gap-8 sm:gap-10">
+              <div className="mt-8 sm:mt-10 flex flex-col gap-8 sm:gap-10">
                 {project.sections.map((section, idx) => (
                   <section
                     key={`${section.tag}-${idx}`}
-                    className="flex flex-col pt-6 sm:pt-8"
+                    className="flex flex-col"
                   >
                     <span className="font-display text-[13px] sm:text-[13.5px] font-medium text-text">
                       {section.tag}
