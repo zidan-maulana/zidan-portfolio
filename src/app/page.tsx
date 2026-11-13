@@ -40,7 +40,7 @@ export default function HomePage() {
         - Dimulai di y=12px (mobile) / y=16px (desktop) dengan pt-3 sm:pt-4
         - Modul 1 (Hero) memiliki sasis abu-abu dengan rounded-[24px] penuh
         - Bagian atas Modul 1 bertindak sebagai Latar Penghubung (Connecting Background):
-          Tinggi navbar (58px/64px) + sela abu-abu (16px) = pt-[74px] sm:pt-[80px]
+          Tinggi navbar (56px/60px) + sela abu-abu = pt-[56px] sm:pt-[62px]
         - Saat scroll 0: Latar Penghubung abu-abu berada tepat di belakang navbar,
           sehingga navbar dan sasis Hero terlihat sebagai satu kesatuan objek abu-abu.
         - Saat scroll > 0: Card putih Hero meluncur ke atas dan masuk tertelan ke balik navbar,
@@ -48,7 +48,7 @@ export default function HomePage() {
       */}
       <div className="w-full max-w-[756px] flex flex-col gap-2 relative z-10 pt-3 sm:pt-4">
         {/* Modul 1: Sasis Abu-abu Menampung Latar Penghubung dan Card Hero */}
-        <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[1.5px] pt-[74px] sm:pt-[80px]">
+        <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[1.5px] pt-[56px] sm:pt-[62px]">
           <Hero profile={dummyProfile} />
         </div>
 
