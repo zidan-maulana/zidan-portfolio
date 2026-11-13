@@ -21,7 +21,7 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-muted"
+        className="inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border bg-surface text-muted"
         aria-label="Memuat pengalih tema"
         disabled
       >
@@ -36,7 +36,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-surface text-text transition-colors hover:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-[10px] border border-border bg-surface text-text transition-colors hover:bg-page focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
       aria-label={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
       title={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
     >
@@ -44,8 +44,8 @@ export function ThemeToggle() {
         // Ikon Matahari (Sun)
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -68,8 +68,8 @@ export function ThemeToggle() {
         // Ikon Bulan (Moon)
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
+          width="16"
+          height="16"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

@@ -35,15 +35,14 @@ export function LiveClock({
 
   return (
     <div
-      className="inline-flex items-center gap-2 text-[12px] font-medium text-muted select-none"
+      className="inline-flex items-center text-[13px] select-none"
       aria-label={`Waktu saat ini di ${location}`}
     >
-      <span
-        className="h-2 w-2 rounded-full bg-accent motion-safe:animate-pulse"
-        aria-hidden="true"
-      />
-      <span className="tabular-nums">
-        {timeString ? `${timeString} ${location}` : `--:--:-- ${location}`}
+      <span className="tabular-nums font-medium text-text">
+        {timeString || "--:--:--"}
+      </span>
+      <span className="ml-1.5 text-muted font-normal">
+        {location}
       </span>
     </div>
   );
