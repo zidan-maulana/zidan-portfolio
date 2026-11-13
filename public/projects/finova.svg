@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <defs>
+    <linearGradient id="fin-bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F4F4F5" />
+      <stop offset="100%" stop-color="#E4E4E7" />
+    </linearGradient>
+    <filter id="fin-shadow" x="250" y="80" width="300" height="340" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#000000" flood-opacity="0.14" />
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#fin-bg)" />
+  {/* Modern Pocket/Layer Aesthetic */}
+  <path d="M0 320 C250 300 550 340 800 310 L800 500 L0 500 Z" fill="#D4D4D8" opacity="0.45" />
+  <g filter="url(#fin-shadow)" transform="rotate(-3 400 240)">
+    <rect x="295" y="90" width="210" height="300" rx="32" fill="#FFFFFF" stroke="#E4E4E7" stroke-width="2" />
+    <rect x="360" y="105" width="80" height="12" rx="6" fill="#18181B" />
+    <text x="325" y="180" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#18181B" letter-spacing="-0.02em">Finova App</text>
+    <text x="325" y="202" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#71717A">Personal Wealth Tracker</text>
+    <rect x="325" y="225" width="150" height="55" rx="12" fill="#F4F4F5" stroke="#E4E4E7" stroke-width="1" />
+    <text x="340" y="250" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#71717A">Total Balance</text>
+    <text x="340" y="268" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#18181B">$124,500.00</text>
+    <rect x="325" y="295" width="150" height="28" rx="8" fill="#18181B" />
+    <text x="400" y="313" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF">Send &amp; Receive</text>
+  </g>
+</svg>
+

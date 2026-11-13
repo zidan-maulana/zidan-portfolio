@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <defs>
+    <linearGradient id="nova-bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E4E4E7" />
+      <stop offset="100%" stop-color="#D4D4D8" />
+    </linearGradient>
+    <linearGradient id="card-grad" x1="280" y1="120" x2="520" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.75" />
+    </linearGradient>
+    <filter id="nova-shadow" x="250" y="90" width="300" height="320" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#nova-bg)" />
+  <g filter="url(#nova-shadow)" transform="rotate(4 400 250)">
+    <rect x="290" y="110" width="220" height="280" rx="20" fill="url(#card-grad)" stroke="#FFFFFF" stroke-width="1.5" />
+    {/* Halftone Dot Grid */}
+    <g fill="#18181B" opacity="0.85">
+      <circle cx="360" cy="220" r="3" />
+      <circle cx="380" cy="220" r="4.5" />
+      <circle cx="400" cy="220" r="6" />
+      <circle cx="420" cy="220" r="4.5" />
+      <circle cx="440" cy="220" r="3" />
+
+      <circle cx="360" cy="240" r="4.5" />
+      <circle cx="380" cy="240" r="7" />
+      <circle cx="400" cy="240" r="9" />
+      <circle cx="420" cy="240" r="7" />
+      <circle cx="440" cy="240" r="4.5" />
+
+      <circle cx="360" cy="260" r="6" />
+      <circle cx="380" cy="260" r="9" />
+      <circle cx="400" cy="260" r="11" />
+      <circle cx="420" cy="260" r="9" />
+      <circle cx="440" cy="260" r="6" />
+
+      <circle cx="360" cy="280" r="4.5" />
+      <circle cx="380" cy="280" r="7" />
+      <circle cx="400" cy="280" r="9" />
+      <circle cx="420" cy="280" r="7" />
+      <circle cx="440" cy="280" r="4.5" />
+
+      <circle cx="360" cy="300" r="3" />
+      <circle cx="380" cy="300" r="4.5" />
+      <circle cx="400" cy="300" r="6" />
+      <circle cx="420" cy="300" r="4.5" />
+      <circle cx="440" cy="300" r="3" />
+    </g>
+    <text x="400" y="345" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#27272A" letter-spacing="0.1em">NOVA DESIGN</text>
+  </g>
+</svg>
+

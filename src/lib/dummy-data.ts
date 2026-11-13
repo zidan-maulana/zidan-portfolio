@@ -10,6 +10,8 @@ export interface Profile {
   };
   headline: string;
   shortBio: string;
+  aboutText?: string;
+  phone?: string;
   overview?: Array<{
     _type: string;
     children: Array<{ _type: string; text: string }>;
@@ -95,6 +97,8 @@ export const dummyProfile: Profile = {
     "I build modern, high-performance digital experiences that drive real impact.",
   shortBio:
     "Informatics student and freelance developer crafting digital solutions that engage users and deliver real value.",
+  aboutText:
+    "Hey, I'm Zidan Maulana, an Informatics student and freelance developer crafting scalable web applications, modern frontend architecture, and intuitive digital experiences that deliver real impact.",
   location: "Jakarta",
   timezone: "Asia/Jakarta",
   availability: "Open for new projects",
@@ -105,6 +109,7 @@ export const dummyProfile: Profile = {
     },
   },
   email: "zidan@example.com",
+  phone: "+62 812 3456 7890",
   bookingUrl: "mailto:zidan@example.com",
   projectsUrl: "#projects",
   socials: [
@@ -113,3 +118,117 @@ export const dummyProfile: Profile = {
     { label: "Instagram", url: "https://instagram.com" },
   ],
 };
+
+export interface Project {
+  id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  category: string;
+  year?: string;
+  cover: {
+    asset: {
+      url: string;
+    };
+    alt: string;
+  };
+  summary: string;
+  body?: string;
+  stack?: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  featured?: boolean;
+  order?: number;
+}
+
+export const dummyProjects: Project[] = [
+  {
+    id: "project-1",
+    title: "Orbit - SaaS Analytics Platform",
+    slug: {
+      current: "orbit-saas-platform",
+    },
+    category: "Full Stack / SaaS",
+    year: "2026",
+    cover: {
+      asset: {
+        url: "/projects/orbit.svg",
+      },
+      alt: "Orbit SaaS Analytics Platform Interface Mockup",
+    },
+    summary:
+      "Real-time web analytics and telemetry platform with high-throughput event ingestion and custom dashboard visualization.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma"],
+    liveUrl: "https://example.com/orbit",
+    repoUrl: "https://github.com/example/orbit",
+    featured: true,
+    order: 1,
+  },
+  {
+    id: "project-2",
+    title: "Nova AI - Design System Engine",
+    slug: {
+      current: "nova-ai-design-system",
+    },
+    category: "AI & UI/UX Tooling",
+    year: "2025",
+    cover: {
+      asset: {
+        url: "/projects/nova.svg",
+      },
+      alt: "Nova AI Design System Engine Card Mockup",
+    },
+    summary:
+      "Intelligent design token extractor and accessible UI component generator powered by modern generative AI workflows.",
+    stack: ["React", "TypeScript", "Node.js", "OpenAI API", "Tailwind CSS"],
+    liveUrl: "https://example.com/nova",
+    repoUrl: "https://github.com/example/nova",
+    featured: true,
+    order: 2,
+  },
+  {
+    id: "project-3",
+    title: "Finova Finance App",
+    slug: {
+      current: "finova-finance-app",
+    },
+    category: "FinTech / Personal Finance",
+    year: "2025",
+    cover: {
+      asset: {
+        url: "/projects/finova.svg",
+      },
+      alt: "Finova Personal Finance App Mobile Mockup",
+    },
+    summary:
+      "Privacy-first wealth tracker and automated transaction categorization tool with real-time budget forecasting.",
+    stack: ["Next.js", "TypeScript", "Zustand", "Recharts", "Supabase"],
+    liveUrl: "https://example.com/finova",
+    repoUrl: "https://github.com/example/finova",
+    featured: true,
+    order: 3,
+  },
+  {
+    id: "project-4",
+    title: "Lunex Workspace Redesign",
+    slug: {
+      current: "lunex-workspace-redesign",
+    },
+    category: "Frontend Architecture",
+    year: "2024",
+    cover: {
+      asset: {
+        url: "/projects/lunex.svg",
+      },
+      alt: "Lunex Collaborative Workspace Desktop Mockup",
+    },
+    summary:
+      "Complete frontend redesign and performance overhaul of a collaborative workspace platform, boosting Core Web Vitals by 45%.",
+    stack: ["React", "TypeScript", "Vite", "WebSockets", "Tailwind CSS"],
+    liveUrl: "https://example.com/lunex",
+    repoUrl: "https://github.com/example/lunex",
+    featured: true,
+    order: 4,
+  },
+];

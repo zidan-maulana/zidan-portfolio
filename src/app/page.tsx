@@ -1,6 +1,8 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
-import { dummyProfile } from "@/lib/dummy-data";
+import { Overview } from "@/components/overview";
+import { Projects } from "@/components/projects";
+import { dummyProfile, dummyProjects } from "@/lib/dummy-data";
 
 export default function HomePage() {
   return (
@@ -12,8 +14,10 @@ export default function HomePage() {
           location={dummyProfile.location}
           socials={dummyProfile.socials}
         />
-        <main className="w-full">
+        <main className="w-full flex flex-col gap-[2px]">
           <Hero profile={dummyProfile} />
+          <Overview profile={dummyProfile} />
+          <Projects projects={dummyProjects} />
         </main>
       </div>
     </div>
