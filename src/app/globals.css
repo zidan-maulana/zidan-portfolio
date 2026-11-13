@@ -77,9 +77,9 @@
   --shadow-btn-icon: var(--btn-icon-shadow);
   --shadow-btn-icon-hover: var(--btn-icon-hover-shadow);
 
-  --font-sans: 'Inter Display', var(--font-inter), sans-serif;
-  --font-inter: 'Inter Display', var(--font-inter), sans-serif;
-  --font-display: 'Inter Display', var(--font-inter), sans-serif;
+  --font-sans: var(--font-inter-display), 'Inter Display', sans-serif;
+  --font-inter: var(--font-inter-display), 'Inter Display', sans-serif;
+  --font-display: var(--font-inter-display), 'Inter Display', sans-serif;
 }
 
 .shadow-btn-primary {
@@ -103,9 +103,7 @@
 }
 
 .font-display {
-  font-family: 'Inter Display', var(--font-inter), sans-serif;
-  font-feature-settings: 'opsz' 32;
-  font-variation-settings: 'opsz' 32;
+  font-family: var(--font-inter-display), 'Inter Display', sans-serif;
 }
 
 @layer base {
