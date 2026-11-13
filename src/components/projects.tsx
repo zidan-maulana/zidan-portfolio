@@ -34,7 +34,7 @@ export function Projects({ projects }: ProjectsProps) {
       <div className="mt-8 sm:mt-10 flex justify-center">
         <Link
           href="#projects"
-          className="inline-flex h-[40px] items-center justify-center rounded-[13px] border border-btn-secondary-border bg-surface px-6 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+          className="inline-flex h-[40px] cursor-pointer items-center justify-center rounded-[13px] border border-btn-secondary-border bg-surface px-6 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:-translate-y-[2px] hover:bg-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
         >
           See All Projects
         </Link>

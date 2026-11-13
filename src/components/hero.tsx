@@ -95,7 +95,7 @@ export function Hero({ profile }: HeroProps) {
           <a
             href={profile.cv.asset.url}
             download
-            className="inline-flex h-[40px] items-center justify-center rounded-[13px] border-[1.5px] border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="inline-flex h-[40px] cursor-pointer items-center justify-center rounded-[13px] border-[1.5px] border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:-translate-y-[2px] hover:bg-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             Download CV
           </a>

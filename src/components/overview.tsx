@@ -17,7 +17,7 @@ export function Overview({ profile }: OverviewProps) {
       className="relative rounded-[20px] bg-surface p-6 sm:p-8 md:p-[44px]"
     >
       {/* Label Section Sesuai Referensi Portfolik */}
-      <div className="font-display text-[13.5px] sm:text-[14px] font-medium text-muted">
+      <div className="font-display text-[16px] font-medium text-muted">
         About my self.
       </div>
 
@@ -25,7 +25,7 @@ export function Overview({ profile }: OverviewProps) {
       <div className="mt-4 sm:mt-5">
         <BlurReveal
           text={bioText}
-          className="font-display text-[18px] sm:text-[21px] md:text-[22px] font-normal tracking-[-0.015em] leading-[30px] sm:leading-[34px] md:leading-[36px] text-text"
+          className="font-display text-[18px] font-normal tracking-[-0.01em] leading-[28px] sm:leading-[29px] text-text"
         />
       </div>
 
