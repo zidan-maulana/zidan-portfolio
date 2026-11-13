@@ -13,9 +13,12 @@
   --accent-soft: #EAF7E6;
   --btn-primary-bg: #0E0E0E;
   --btn-primary-text: #FFFFFF;
+  --btn-primary-border: rgba(0, 0, 0, 0.35);
   --btn-secondary-bg: #FFFFFF;
   --btn-secondary-text: #0E0E0E;
   --btn-secondary-border: #E5E5E5;
+  --btn-primary-shadow: 0 6px 20px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .dark {
@@ -31,9 +34,12 @@
   --accent-soft: #0E2909;
   --btn-primary-bg: #F5F5F5;
   --btn-primary-text: #0E0E0E;
+  --btn-primary-border: rgba(255, 255, 255, 0.15);
   --btn-secondary-bg: #141414;
   --btn-secondary-text: #F5F5F5;
   --btn-secondary-border: #282828;
+  --btn-primary-shadow: 0 6px 20px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 @theme {
@@ -49,13 +55,24 @@
   --color-accent-soft: var(--accent-soft);
   --color-btn-primary-bg: var(--btn-primary-bg);
   --color-btn-primary-text: var(--btn-primary-text);
+  --color-btn-primary-border: var(--btn-primary-border);
   --color-btn-secondary-bg: var(--btn-secondary-bg);
   --color-btn-secondary-text: var(--btn-secondary-text);
   --color-btn-secondary-border: var(--btn-secondary-border);
+  --shadow-btn-primary: var(--btn-primary-shadow);
+  --shadow-btn-secondary: var(--btn-secondary-shadow);
 
   --font-sans: 'Inter Display', var(--font-inter), sans-serif;
   --font-inter: 'Inter Display', var(--font-inter), sans-serif;
   --font-display: 'Inter Display', var(--font-inter), sans-serif;
+}
+
+.shadow-btn-primary {
+  box-shadow: var(--btn-primary-shadow);
+}
+
+.shadow-btn-secondary {
+  box-shadow: var(--btn-secondary-shadow);
 }
 
 .font-display {

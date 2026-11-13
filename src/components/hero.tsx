@@ -93,14 +93,14 @@ export function Hero({ profile }: HeroProps) {
         <div className="mt-6 sm:mt-7 flex flex-row items-center gap-3">
           <a
             href={profile.email ? `mailto:${profile.email}` : "mailto:zidan@example.com"}
-            className="inline-flex h-[40px] items-center justify-center rounded-[11px] bg-btn-primary-bg px-5 text-[13.5px] font-medium text-btn-primary-text shadow-[0_3px_10px_rgba(0,0,0,0.16)] dark:shadow-none transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="inline-flex h-[46px] items-center justify-center rounded-[14px] border border-btn-primary-border bg-btn-primary-bg px-6 font-display text-[15px] font-medium text-btn-primary-text shadow-btn-primary transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             Get in Touch
           </a>
           <a
             href={profile.cv.asset.url}
             download
-            className="inline-flex h-[40px] items-center justify-center rounded-[11px] border border-border/80 bg-surface px-5 text-[13.5px] font-medium text-text shadow-xs transition-all hover:bg-page active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="inline-flex h-[46px] items-center justify-center rounded-[14px] border border-btn-secondary-border bg-btn-secondary-bg px-6 font-display text-[15px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all hover:bg-page active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             Download CV
           </a>
