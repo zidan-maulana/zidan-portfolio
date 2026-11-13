@@ -12,7 +12,7 @@ export function Hero({ profile }: HeroProps) {
     <section
       id="home"
       aria-label="Profil dan Pengantar"
-      className="relative overflow-hidden rounded-[20px] bg-surface p-6 sm:p-8 md:p-[44px]"
+      className="relative z-10 overflow-hidden rounded-b-[21px] rounded-t-none bg-surface p-6 sm:p-8 md:p-[44px]"
     >
       {/* Dekorasi Grid Minimalis Samar di Pojok Kanan Bawah */}
       <div
@@ -46,10 +46,10 @@ export function Hero({ profile }: HeroProps) {
                   profile.roles && profile.roles.length > 0
                     ? profile.roles
                     : [
-                        "Full Stack Developer",
-                        "AI Engineer",
-                        "UI/UX Designer",
-                      ]
+                      "Full Stack Developer",
+                      "AI Engineer",
+                      "UI/UX Designer",
+                    ]
                 }
               />
             </div>
@@ -95,7 +95,7 @@ export function Hero({ profile }: HeroProps) {
           <a
             href={profile.cv.asset.url}
             download
-            className="inline-flex h-[40px] cursor-pointer items-center justify-center rounded-[13px] border-[1.5px] border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:-translate-y-[2px] hover:bg-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="inline-flex h-[40px] cursor-pointer items-center justify-center rounded-[13px] border border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             Download CV
           </a>

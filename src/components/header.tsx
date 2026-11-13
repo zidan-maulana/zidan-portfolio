@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useLenis } from "lenis/react";
 import { LiveClock } from "@/components/live-clock";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -24,6 +24,7 @@ export function Header({
   location = "Jakarta",
   socials = [],
 }: HeaderProps) {
+  const lenis = useLenis();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const closeMenu = () => setMobileMenuOpen(false);
@@ -40,6 +41,25 @@ export function Header({
     }
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileMenuOpen]);
+
+  // Handler navigasi anchor dengan Lenis smooth scroll
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        if (lenis) {
+          lenis.scrollTo(target as HTMLElement, { offset: -80 });
+        } else {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      closeMenu();
+    }
+  };
 
   // Helper untuk rendering ikon sosial
   const renderSocialIcon = (label: string) => {
@@ -98,25 +118,26 @@ export function Header({
 
   return (
     <nav
-      className="relative z-20 flex h-[64px] w-full items-center justify-between px-6 py-4 bg-transparent"
+      className="flex h-[58px] sm:h-[62px] w-full items-center justify-between px-5 sm:px-6 rounded-t-[24px] rounded-b-none bg-nav-bg transition-colors duration-200"
       aria-label="Navigasi Utama"
     >
-      {/* Kelompok Kiri: Jam Digital dan Lokasi (Satu Baris, whitespace-nowrap) */}
+      {/* Kelompok Kiri: Jam Digital dan Lokasi */}
       <div className="flex items-center shrink-0 whitespace-nowrap">
         <LiveClock timezone={timezone} location={location} />
       </div>
 
-      {/* Kelompok Tengah: Menu Desktop (Jarak navigasi lebih dempet dengan efek Roll on Hover) */}
+      {/* Kelompok Tengah: Menu Desktop */}
       <div
         className="hidden md:flex items-center gap-[10px] shrink-0"
         role="menubar"
       >
         {navItems.map((item) => (
-          <Link
+          <a
             key={item.label}
             href={item.href}
+            onClick={(e) => handleNavClick(e, item.href)}
             role="menuitem"
-            className="group relative inline-block rounded-md px-1 py-0.5 text-[13.5px] font-medium text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="group relative inline-block rounded-md px-1 py-0.5 text-[13.5px] font-medium text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
           >
             <span className="relative block overflow-hidden leading-tight">
               <span className="block transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-full motion-reduce:transition-none">
@@ -129,11 +150,11 @@ export function Header({
                 {item.label}
               </span>
             </span>
-          </Link>
+          </a>
         ))}
       </div>
 
-      {/* Kelompok Kanan: 4 Tombol Kotak (GitHub, LinkedIn, Instagram, Toggle Tema) */}
+      {/* Kelompok Kanan: 4 Tombol Kotak */}
       <div className="hidden sm:flex items-center gap-2 shrink-0">
         {socials.map((social) => (
           <a
@@ -141,7 +162,7 @@ export function Header({
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:-translate-y-[2px] hover:bg-btn-secondary-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
+            className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
             aria-label={`Buka profil ${social.label}`}
             title={social.label}
           >
@@ -157,7 +178,7 @@ export function Header({
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:-translate-y-[2px] hover:bg-btn-secondary-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+          className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
         >
@@ -201,20 +222,20 @@ export function Header({
       {/* Dropdown Menu Mobile */}
       {mobileMenuOpen && (
         <div
-          className="absolute left-2 right-2 top-[54px] z-50 rounded-[18px] border border-border/80 bg-surface p-4 shadow-lg sm:hidden"
+          className="absolute left-2 right-2 top-[64px] z-50 rounded-[18px] border border-border/80 bg-surface p-4 shadow-lg sm:hidden"
           role="menu"
         >
           <div className="flex flex-col gap-2">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
-                onClick={closeMenu}
+                onClick={(e) => handleNavClick(e, item.href)}
                 role="menuitem"
-                className="flex h-10 items-center rounded-lg px-3 text-[14px] font-medium text-text transition-colors hover:bg-nav-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+                className="flex h-10 items-center rounded-lg px-3 text-[14px] font-medium text-text transition-colors hover:bg-nav-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -226,7 +247,7 @@ export function Header({
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:-translate-y-[2px] hover:bg-btn-secondary-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+                  className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
                   aria-label={`Buka profil ${social.label}`}
                   title={social.label}
                 >
