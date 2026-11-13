@@ -8,7 +8,6 @@ interface RollingTitleProps {
 }
 
 const defaultTitles = [
-  "Frontend Developer",
   "Full Stack Developer",
   "AI Engineer",
   "UI/UX Designer",

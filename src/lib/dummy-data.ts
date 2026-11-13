@@ -79,9 +79,8 @@ export const dummyBrands: BrandLogo[] = [
 
 export const dummyProfile: Profile = {
   name: "Zidan Maulana",
-  role: "Frontend Developer",
+  role: "Full Stack Developer",
   roles: [
-    "Frontend Developer",
     "Full Stack Developer",
     "AI Engineer",
     "UI/UX Designer",

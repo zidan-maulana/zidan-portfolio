@@ -62,7 +62,6 @@ export function Hero({ profile }: HeroProps) {
                   profile.roles && profile.roles.length > 0
                     ? profile.roles
                     : [
-                        profile.role,
                         "Full Stack Developer",
                         "AI Engineer",
                         "UI/UX Designer",
