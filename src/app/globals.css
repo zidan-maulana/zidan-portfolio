@@ -17,10 +17,12 @@
   --btn-secondary-bg: #FFFFFF;
   --btn-secondary-text: #0E0E0E;
   --btn-secondary-border: #E5E5E5;
-  --btn-secondary-hover: #F0F0F0;
+  --btn-secondary-hover: #F5F6F8;
   --btn-primary-shadow: 0 4px 14px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1.5px 0 rgba(0, 0, 0, 0.06);
+  --btn-secondary-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1), inset 0 -1.5px 0 rgba(0, 0, 0, 0.08);
+  --btn-icon-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1.5px 0 rgba(0, 0, 0, 0.06);
+  --btn-icon-hover-shadow: 0 4px 10px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1), inset 0 -1.5px 0 rgba(0, 0, 0, 0.08);
 }
 
 .dark {
@@ -40,10 +42,12 @@
   --btn-secondary-bg: #141414;
   --btn-secondary-text: #F5F5F5;
   --btn-secondary-border: #282828;
-  --btn-secondary-hover: #222222;
+  --btn-secondary-hover: #1E1E20;
   --btn-primary-shadow: 0 4px 14px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  --btn-secondary-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1.5px 0 rgba(0, 0, 0, 0.6);
+  --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  --btn-icon-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1.5px 0 rgba(0, 0, 0, 0.6);
 }
 
 @theme {
@@ -66,7 +70,9 @@
   --color-btn-secondary-hover: var(--btn-secondary-hover);
   --shadow-btn-primary: var(--btn-primary-shadow);
   --shadow-btn-secondary: var(--btn-secondary-shadow);
+  --shadow-btn-secondary-hover: var(--btn-secondary-hover-shadow);
   --shadow-btn-icon: var(--btn-icon-shadow);
+  --shadow-btn-icon-hover: var(--btn-icon-hover-shadow);
 
   --font-sans: 'Inter Display', var(--font-inter), sans-serif;
   --font-inter: 'Inter Display', var(--font-inter), sans-serif;
@@ -81,8 +87,16 @@
   box-shadow: var(--btn-secondary-shadow);
 }
 
+.shadow-btn-secondary-hover {
+  box-shadow: var(--btn-secondary-hover-shadow);
+}
+
 .shadow-btn-icon {
   box-shadow: var(--btn-icon-shadow);
+}
+
+.shadow-btn-icon-hover {
+  box-shadow: var(--btn-icon-hover-shadow);
 }
 
 .font-display {
