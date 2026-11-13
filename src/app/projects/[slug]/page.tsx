@@ -142,7 +142,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
                     {/* Galeri Gambar 2 Kolom untuk Tahapan Ideation */}
                     {section.images && section.images.length > 0 && (
-                      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                      <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                         {section.images.map((img, imgIdx) => (
                           <div
                             key={imgIdx}
