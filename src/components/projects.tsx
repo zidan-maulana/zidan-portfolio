@@ -11,7 +11,7 @@ export function Projects({ projects }: ProjectsProps) {
     <section
       id="projects"
       aria-label="Studi Kasus dan Proyek"
-      className="relative rounded-[20px] bg-surface p-6 sm:p-8 md:p-[44px]"
+      className="relative p-6 sm:p-8 md:p-[44px]"
     >
       {/* Judul dan Subtitle Section Proyek */}
       <div className="flex flex-col">
