@@ -21,7 +21,7 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-btn-secondary-border bg-surface text-muted shadow-btn-icon shrink-0"
+        className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-muted shadow-btn-icon shrink-0"
         aria-label="Memuat pengalih tema"
         disabled
       >
@@ -36,7 +36,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
+      className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
       aria-label={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
       title={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
     >

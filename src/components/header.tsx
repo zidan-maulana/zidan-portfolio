@@ -141,7 +141,7 @@ export function Header({
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
+            className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
             aria-label={`Buka profil ${social.label}`}
             title={social.label}
           >
@@ -157,7 +157,7 @@ export function Header({
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+          className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
         >
@@ -226,7 +226,7 @@ export function Header({
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+                  className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
                   aria-label={`Buka profil ${social.label}`}
                   title={social.label}
                 >
