@@ -23,6 +23,7 @@
   --btn-secondary-hover-shadow: 0 3px 8px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1), inset 0 12px 14px -6px rgba(255, 255, 255, 0.85), inset 0 -1.5px 0 rgba(0, 0, 0, 0.07);
   --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   --btn-icon-hover-shadow: 0 3px 8px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1), inset 0 12px 14px -6px rgba(255, 255, 255, 0.85), inset 0 -1.5px 0 rgba(0, 0, 0, 0.07);
+  --hero-grid-stroke: #E5E7EB;
 }
 
 .dark {
@@ -48,6 +49,7 @@
   --btn-secondary-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 12px 14px -6px rgba(255, 255, 255, 0.06), inset 0 -1.5px 0 rgba(0, 0, 0, 0.6);
   --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   --btn-icon-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 12px 14px -6px rgba(255, 255, 255, 0.06), inset 0 -1.5px 0 rgba(0, 0, 0, 0.6);
+  --hero-grid-stroke: #262626;
 }
 
 @theme {
@@ -68,6 +70,7 @@
   --color-btn-secondary-text: var(--btn-secondary-text);
   --color-btn-secondary-border: var(--btn-secondary-border);
   --color-btn-secondary-hover: var(--btn-secondary-hover);
+  --color-hero-grid-stroke: var(--hero-grid-stroke);
   --shadow-btn-primary: var(--btn-primary-shadow);
   --shadow-btn-secondary: var(--btn-secondary-shadow);
   --shadow-btn-secondary-hover: var(--btn-secondary-hover-shadow);

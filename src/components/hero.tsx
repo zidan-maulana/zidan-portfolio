@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Profile } from "@/lib/dummy-data";
 import { RollingTitle } from "@/components/rolling-title";
+import { HeroGrid } from "@/components/hero-grid";
 
 interface HeroProps {
   profile: Profile;
@@ -13,29 +14,12 @@ export function Hero({ profile }: HeroProps) {
       aria-label="Profil dan Pengantar"
       className="relative overflow-hidden rounded-[20px] bg-surface p-6 sm:p-8 md:p-[44px]"
     >
-      {/* Dekorasi Grid Samar di Sisi Kanan Bawah */}
+      {/* Dekorasi Grid Minimalis Samar di Pojok Kanan Bawah */}
       <div
-        className="pointer-events-none absolute bottom-0 right-0 z-0 h-[180px] w-[200px] select-none overflow-hidden [mask-image:radial-gradient(ellipse_at_bottom_right,black_40%,transparent_80%)]"
+        className="pointer-events-none absolute -bottom-[35px] -right-[25px] z-0 select-none overflow-hidden"
         aria-hidden="true"
       >
-        <div className="grid h-full w-full grid-cols-4 grid-rows-4">
-          <div className="border-b border-l border-border/30 bg-page/10" />
-          <div className="border-b border-l border-border/30" />
-          <div className="border-b border-l border-border/30 bg-page/20" />
-          <div className="border-b border-l border-border/30" />
-          <div className="border-b border-l border-border/30" />
-          <div className="border-b border-l border-border/30 bg-page/15" />
-          <div className="border-b border-l border-border/30" />
-          <div className="border-b border-l border-border/30" />
-          <div className="border-b border-l border-border/30 bg-page/25" />
-          <div className="border-b border-l border-border/30" />
-          <div className="border-b border-l border-border/30 bg-page/10" />
-          <div className="border-b border-l border-border/30" />
-          <div className="border-l border-border/30" />
-          <div className="border-l border-border/30 bg-page/10" />
-          <div className="border-l border-border/30" />
-          <div className="border-l border-border/30 bg-page/20" />
-        </div>
+        <HeroGrid className="h-[315px] w-[260px] opacity-45 sm:h-[420px] sm:w-[347px] sm:opacity-90" />
       </div>
 
       {/* Konten Utama Hero (Rata Kiri, Mengikuti Garis Vertikal yang Sama) */}
