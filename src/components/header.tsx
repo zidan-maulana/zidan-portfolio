@@ -106,7 +106,7 @@ export function Header({
         <LiveClock timezone={timezone} location={location} />
       </div>
 
-      {/* Kelompok Tengah: Menu Desktop (Jarak navigasi lebih dempet) */}
+      {/* Kelompok Tengah: Menu Desktop (Jarak navigasi lebih dempet dengan efek Roll on Hover) */}
       <div
         className="hidden md:flex items-center gap-[10px] shrink-0"
         role="menubar"
@@ -116,9 +116,19 @@ export function Header({
             key={item.label}
             href={item.href}
             role="menuitem"
-            className="text-[13.5px] font-medium text-text transition-colors hover:text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text rounded-md px-1 py-0.5"
+            className="group relative inline-flex h-[20px] items-center overflow-hidden rounded-md px-1 text-[13.5px] font-medium text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
-            {item.label}
+            <div className="flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1/2 motion-reduce:transition-none">
+              <span className="flex h-[20px] items-center text-text transition-colors group-hover:text-muted">
+                {item.label}
+              </span>
+              <span
+                className="flex h-[20px] items-center text-muted transition-colors"
+                aria-hidden="true"
+              >
+                {item.label}
+              </span>
+            </div>
           </Link>
         ))}
       </div>
