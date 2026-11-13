@@ -118,7 +118,7 @@ export function Header({
 
   return (
     <nav
-      className="flex h-[58px] sm:h-[62px] w-full items-center justify-between px-5 sm:px-6 rounded-t-[24px] rounded-b-none bg-nav-bg transition-colors duration-200"
+      className="relative flex h-[58px] sm:h-[62px] w-full items-center justify-between px-5 sm:px-6 rounded-[24px] bg-nav-bg transition-colors duration-200"
       aria-label="Navigasi Utama"
     >
       {/* Kelompok Kiri: Jam Digital dan Lokasi */}

@@ -12,7 +12,7 @@ export function Hero({ profile }: HeroProps) {
     <section
       id="home"
       aria-label="Profil dan Pengantar"
-      className="relative z-10 overflow-hidden rounded-b-[21px] rounded-t-none bg-surface p-6 sm:p-8 md:p-[44px]"
+      className="relative z-10 overflow-hidden rounded-[21px] bg-surface p-6 sm:p-8 md:p-[44px]"
     >
       {/* Dekorasi Grid Minimalis Samar di Pojok Kanan Bawah */}
       <div
