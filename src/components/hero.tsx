@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Profile } from "@/lib/dummy-data";
+import { RollingTitle } from "@/components/rolling-title";
 
 interface HeroProps {
   profile: Profile;
@@ -46,7 +47,7 @@ export function Hero({ profile }: HeroProps) {
               src={profile.avatar.asset.url}
               alt={profile.avatar.alt}
               fill
-              sizes="90px"
+              unoptimized
               className="object-cover"
               priority
             />
@@ -55,8 +56,14 @@ export function Hero({ profile }: HeroProps) {
             <div className="font-display text-[20px] font-medium leading-tight tracking-[-0.01em] text-text">
               {profile.name}
             </div>
-            <div className="mt-1 text-[14px] font-medium text-muted">
-              {profile.role}
+            <div className="mt-[2px]">
+              <RollingTitle
+                titles={
+                  profile.roles && profile.roles.length > 0
+                    ? profile.roles
+                    : [profile.role, "Full Stack Developer", "AI Engineer"]
+                }
+              />
             </div>
           </div>
         </div>
