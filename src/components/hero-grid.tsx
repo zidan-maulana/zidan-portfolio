@@ -11,42 +11,119 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
       height="420"
       fill="none"
       aria-hidden="true"
-      className={`pointer-events-none select-none text-hero-grid-stroke ${className}`}
+      className={`pointer-events-none select-none ${className}`}
     >
       <defs>
-        {/* Gradasi Vertikal: Transparan di ujung atas dan bawah, terlihat di tengah */}
-        <linearGradient id="hero-vgrid-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-          <stop offset="20%" stopColor="currentColor" stopOpacity="0.85" />
-          <stop offset="75%" stopColor="currentColor" stopOpacity="0.85" />
-          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+        {/* 4 Gradasi Vertikal dengan userSpaceOnUse agar garis stroke 1px ter-render sempurna di browser */}
+        <linearGradient
+          id="hero-vgrid-1"
+          gradientUnits="userSpaceOnUse"
+          x1="190"
+          y1="60"
+          x2="190"
+          y2="330"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+          <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+        </linearGradient>
+
+        <linearGradient
+          id="hero-vgrid-2"
+          gradientUnits="userSpaceOnUse"
+          x1="232"
+          y1="65"
+          x2="232"
+          y2="360"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+          <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+        </linearGradient>
+
+        <linearGradient
+          id="hero-vgrid-3"
+          gradientUnits="userSpaceOnUse"
+          x1="274"
+          y1="75"
+          x2="274"
+          y2="415"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+          <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+        </linearGradient>
+
+        <linearGradient
+          id="hero-vgrid-4"
+          gradientUnits="userSpaceOnUse"
+          x1="317"
+          y1="155"
+          x2="317"
+          y2="420"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+          <stop offset="25%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="75%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
         {/* Gradasi Horizontal Panjang: Memudar halus di kedua ujung */}
-        <linearGradient id="hero-hgrid-long" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="currentColor" stopOpacity="0" />
-          <stop offset="18%" stopColor="currentColor" stopOpacity="0.85" />
-          <stop offset="82%" stopColor="currentColor" stopOpacity="0.85" />
-          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+        <linearGradient
+          id="hero-hgrid-long"
+          gradientUnits="userSpaceOnUse"
+          x1="20"
+          y1="180"
+          x2="347"
+          y2="180"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
+          <stop offset="18%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="82%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
         {/* Gradasi Horizontal Pendek: Terlihat di kiri lalu memudar ke arah kanan */}
-        <linearGradient id="hero-hgrid-short" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="currentColor" stopOpacity="0.85" />
-          <stop offset="60%" stopColor="currentColor" stopOpacity="0.85" />
-          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
+        <linearGradient
+          id="hero-hgrid-short"
+          gradientUnits="userSpaceOnUse"
+          x1="190"
+          y1="270"
+          x2="335"
+          y2="270"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="65%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="1" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0" />
         </linearGradient>
 
         {/* Gradasi Kotak Aksen 1: Isian abu-abu muda dengan opacity maksimal sekitar 30% */}
-        <linearGradient id="hero-box-fade-1" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="currentColor" stopOpacity="0.06" />
-          <stop offset="100%" stopColor="currentColor" stopOpacity="0.30" />
+        <linearGradient
+          id="hero-box-fade-1"
+          gradientUnits="userSpaceOnUse"
+          x1="232"
+          y1="136"
+          x2="232"
+          y2="180"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0.30" />
         </linearGradient>
 
         {/* Gradasi Kotak Aksen 2: Isian abu-abu muda dengan opacity maksimal sekitar 30% */}
-        <linearGradient id="hero-box-fade-2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="currentColor" stopOpacity="0.30" />
-          <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
+        <linearGradient
+          id="hero-box-fade-2"
+          gradientUnits="userSpaceOnUse"
+          x1="274"
+          y1="270"
+          x2="274"
+          y2="314"
+        >
+          <stop offset="0%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0.30" />
+          <stop offset="100%" stopColor="var(--hero-grid-stroke, #E5E7EB)" stopOpacity="0.06" />
         </linearGradient>
       </defs>
 
@@ -69,43 +146,36 @@ export function HeroGrid({ className = "" }: HeroGridProps) {
       />
 
       {/* 4 Garis Vertikal Asimetris di Sisi Kanan (Jarak 42-43 px) */}
-      {/* Garis Vertikal 1: x = 190 */}
       <line
         x1="190"
         y1="60"
         x2="190"
         y2="330"
-        stroke="url(#hero-vgrid-fade)"
+        stroke="url(#hero-vgrid-1)"
         strokeWidth="1"
       />
-
-      {/* Garis Vertikal 2: x = 232 (190 + 42) */}
       <line
         x1="232"
         y1="65"
         x2="232"
         y2="360"
-        stroke="url(#hero-vgrid-fade)"
+        stroke="url(#hero-vgrid-2)"
         strokeWidth="1"
       />
-
-      {/* Garis Vertikal 3: x = 274 (232 + 42) */}
       <line
         x1="274"
         y1="75"
         x2="274"
         y2="415"
-        stroke="url(#hero-vgrid-fade)"
+        stroke="url(#hero-vgrid-3)"
         strokeWidth="1"
       />
-
-      {/* Garis Vertikal 4: x = 317 (274 + 43) */}
       <line
         x1="317"
         y1="155"
         x2="317"
         y2="420"
-        stroke="url(#hero-vgrid-fade)"
+        stroke="url(#hero-vgrid-4)"
         strokeWidth="1"
       />
 

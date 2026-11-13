@@ -19,7 +19,7 @@ export function Hero({ profile }: HeroProps) {
         className="pointer-events-none absolute -bottom-[35px] -right-[25px] z-0 select-none overflow-hidden"
         aria-hidden="true"
       >
-        <HeroGrid className="h-[315px] w-[260px] opacity-45 sm:h-[420px] sm:w-[347px] sm:opacity-90" />
+        <HeroGrid className="h-[315px] w-[260px] opacity-60 sm:h-[420px] sm:w-[347px] sm:opacity-100" />
       </div>
 
       {/* Konten Utama Hero (Rata Kiri, Mengikuti Garis Vertikal yang Sama) */}
