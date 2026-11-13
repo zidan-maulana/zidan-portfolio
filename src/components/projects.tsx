@@ -11,14 +11,14 @@ export function Projects({ projects }: ProjectsProps) {
     <section
       id="projects"
       aria-label="Studi Kasus dan Proyek"
-      className="relative p-6 sm:p-8 md:p-[44px]"
+      className="relative px-4 sm:px-6 md:px-7 py-6 sm:py-8 md:py-[44px] scroll-mt-28"
     >
       {/* Judul dan Subtitle Section Proyek */}
       <div className="flex flex-col">
-        <h2 className="font-display text-[20px] sm:text-[22px] font-medium tracking-[-0.01em] text-text">
+        <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Case Studies &amp; Projects
         </h2>
-        <p className="mt-1 text-[13.5px] sm:text-[14.5px] font-normal text-muted">
+        <p className="mt-1 text-[14px] font-normal text-muted">
           A selection of projects showcasing frontend architecture, modern engineering, and measurable impact.
         </p>
       </div>
@@ -30,13 +30,13 @@ export function Projects({ projects }: ProjectsProps) {
         ))}
       </div>
 
-      {/* Tombol Aksi di Bagian Bawah: See All Projects */}
+      {/* Tombol Aksi di Bagian Bawah: See my Projects Sesuai Screenshot Referensi */}
       <div className="mt-8 sm:mt-10 flex justify-center">
         <Link
           href="#projects"
-          className="inline-flex h-[40px] cursor-pointer items-center justify-center rounded-[13px] border border-btn-secondary-border bg-surface px-6 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:-translate-y-[2px] hover:bg-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+          className="inline-flex h-[44px] cursor-pointer items-center justify-center rounded-[14px] border border-btn-secondary-border bg-surface px-7 font-display text-[14.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
         >
-          See All Projects
+          See my Projects
         </Link>
       </div>
     </section>

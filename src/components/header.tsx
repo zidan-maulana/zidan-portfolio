@@ -52,7 +52,7 @@ export function Header({
       const target = document.querySelector(href);
       if (target) {
         if (lenis) {
-          lenis.scrollTo(target as HTMLElement, { offset: -80 });
+          lenis.scrollTo(target as HTMLElement, { offset: -100 });
         } else {
           target.scrollIntoView({ behavior: "smooth" });
         }
@@ -118,7 +118,7 @@ export function Header({
 
   return (
     <nav
-      className="relative flex h-[58px] sm:h-[62px] w-full items-center justify-between px-5 sm:px-6 rounded-[24px] bg-nav-bg transition-colors duration-200"
+      className="flex h-[66px] w-full items-center justify-between px-5 sm:px-6 rounded-[24px] bg-nav-bg shadow-sm transition-colors duration-200"
       aria-label="Navigasi Utama"
     >
       {/* Kelompok Kiri: Jam Digital dan Lokasi */}
@@ -222,7 +222,7 @@ export function Header({
       {/* Dropdown Menu Mobile */}
       {mobileMenuOpen && (
         <div
-          className="absolute left-2 right-2 top-[64px] z-50 rounded-[18px] border border-border/80 bg-surface p-4 shadow-lg sm:hidden"
+          className="absolute left-2 right-2 top-[72px] z-50 rounded-[18px] border border-border/80 bg-surface p-4 shadow-lg sm:hidden"
           role="menu"
         >
           <div className="flex flex-col gap-2">

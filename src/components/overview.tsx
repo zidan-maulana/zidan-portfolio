@@ -14,15 +14,15 @@ export function Overview({ profile }: OverviewProps) {
     <section
       id="about"
       aria-label="Tentang Saya"
-      className="relative rounded-[20px] bg-surface p-6 sm:p-8 md:p-[44px]"
+      className="relative overflow-hidden rounded-[24px] bg-surface p-6 sm:p-8 md:p-[44px] scroll-mt-28"
     >
       {/* Label Section Sesuai Referensi Portfolik */}
       <div className="font-display text-[16px] font-medium text-muted">
         About my self.
       </div>
 
-      {/* Paragraf Utama dengan Efek Reveal Kata Saat Scroll */}
-      <div className="mt-4 sm:mt-5">
+      {/* Paragraf Utama dengan Jarak Tepat 16px dari Judul */}
+      <div className="mt-4">
         <BlurReveal
           text={bioText}
           className="font-display text-[18px] font-normal tracking-[-0.01em] leading-[28px] sm:leading-[29px] text-text"
