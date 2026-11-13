@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <defs>
+    <linearGradient id="lumina-bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#121214" />
+      <stop offset="100%" stop-color="#050506" />
+    </linearGradient>
+    <linearGradient id="screen-glow" x1="300" y1="100" x2="500" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF3E00" />
+      <stop offset="100%" stop-color="#991B1B" />
+    </linearGradient>
+    <filter id="glow" x="250" y="80" width="300" height="340" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="28" flood-color="#FF3E00" flood-opacity="0.25" />
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#lumina-bg)" />
+  <g filter="url(#glow)">
+    <rect x="290" y="110" width="220" height="280" rx="24" fill="#1C1917" stroke="#292524" stroke-width="2" />
+    <rect x="306" y="126" width="188" height="248" rx="16" fill="url(#screen-glow)" />
+    <circle cx="400" cy="220" r="40" fill="#FFFFFF" fill-opacity="0.15" />
+    <text x="400" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" letter-spacing="-0.02em">Lumina</text>
+    <text x="400" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#FFFFFF" fill-opacity="0.75" letter-spacing="0.05em">BRAND DESIGN</text>
+  </g>
+</svg>

@@ -231,4 +231,48 @@ export const dummyProjects: Project[] = [
     featured: true,
     order: 4,
   },
+  {
+    id: "project-5",
+    title: "Lumina - Brand Design",
+    slug: {
+      current: "lumina-brand-design",
+    },
+    category: "Technology / SaaS",
+    year: "2024",
+    cover: {
+      asset: {
+        url: "/projects/lumina.svg",
+      },
+      alt: "Lumina Brand Design Dark Tablet Mockup",
+    },
+    summary:
+      "Modern brand identity, design system, and digital asset suite for a high-growth cloud SaaS startup.",
+    stack: ["Design Systems", "Figma", "Tailwind CSS", "Next.js"],
+    liveUrl: "https://example.com/lumina",
+    repoUrl: "https://github.com/example/lumina",
+    featured: true,
+    order: 5,
+  },
+  {
+    id: "project-6",
+    title: "Ohio Branding",
+    slug: {
+      current: "ohio-branding",
+    },
+    category: "Branding",
+    year: "2024",
+    cover: {
+      asset: {
+        url: "/projects/ohio.svg",
+      },
+      alt: "Ohio Editorial Branding Mobile Mockup",
+    },
+    summary:
+      "Comprehensive editorial visual identity, typography system, and collateral design guidelines for print and screen.",
+    stack: ["Typography", "Art Direction", "Figma", "Editorial Design"],
+    liveUrl: "https://example.com/ohio",
+    repoUrl: "https://github.com/example/ohio",
+    featured: true,
+    order: 6,
+  },
 ];

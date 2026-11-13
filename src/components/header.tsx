@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useLenis } from "lenis/react";
 import { LiveClock } from "@/components/live-clock";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -24,6 +25,7 @@ export function Header({
   location = "Jakarta",
   socials = [],
 }: HeaderProps) {
+  const router = useRouter();
   const lenis = useLenis();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -56,6 +58,8 @@ export function Header({
         } else {
           target.scrollIntoView({ behavior: "smooth" });
         }
+      } else {
+        router.push(`/${href}`);
       }
       closeMenu();
     }

@@ -11,7 +11,7 @@ export function Projects({ projects }: ProjectsProps) {
     <section
       id="projects"
       aria-label="Studi Kasus dan Proyek"
-      className="relative px-4 sm:px-6 md:px-7 py-6 sm:py-8 md:py-[44px] scroll-mt-28"
+      className="relative px-4 sm:px-6 md:px-7 py-6 sm:py-8 md:py-[44px]"
     >
       {/* Judul dan Subtitle Section Proyek */}
       <div className="flex flex-col">
@@ -33,7 +33,7 @@ export function Projects({ projects }: ProjectsProps) {
       {/* Tombol Aksi di Bagian Bawah: See my Projects Sesuai Screenshot Referensi */}
       <div className="mt-8 sm:mt-10 flex justify-center">
         <Link
-          href="#projects"
+          href="/projects"
           className="inline-flex h-[44px] cursor-pointer items-center justify-center rounded-[14px] border border-btn-secondary-border bg-surface px-7 font-display text-[14.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
         >
           See my Projects

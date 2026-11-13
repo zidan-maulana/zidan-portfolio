@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <defs>
+    <linearGradient id="ohio-bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E5E7EB" />
+      <stop offset="100%" stop-color="#D1D5DB" />
+    </linearGradient>
+    <filter id="phone-shadow" x="250" y="80" width="300" height="340" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="14" stdDeviation="24" flood-color="#000000" flood-opacity="0.18" />
+    </filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#ohio-bg)" />
+  <g filter="url(#phone-shadow)" transform="rotate(-8 400 250)">
+    <rect x="290" y="100" width="220" height="300" rx="32" fill="#0F172A" stroke="#1E293B" stroke-width="2" />
+    <rect x="304" y="116" width="192" height="268" rx="22" fill="#000000" />
+    <text x="400" y="210" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-style="italic" fill="#FFFFFF">Editorial</text>
+    <text x="400" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="300" fill="#94A3B8">&amp;</text>
+    <text x="400" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" letter-spacing="0.15em">SCENES</text>
+  </g>
+</svg>

@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Overview } from "@/components/overview";
 import { Projects } from "@/components/projects";
+import { Footer } from "@/components/footer";
 import { dummyProfile, dummyProjects } from "@/lib/dummy-data";
 
 export default function HomePage() {
@@ -46,7 +47,7 @@ export default function HomePage() {
         - Saat scroll > 0: Card putih Hero meluncur ke atas dan masuk tertelan ke balik navbar,
           sementara siluet rounded kapsul navbar tetap terbaca jelas.
       */}
-      <div className="w-full max-w-[756px] flex flex-col gap-2 relative z-10 pt-3 sm:pt-4">
+      <div className="w-full max-w-[756px] flex flex-col gap-3 relative z-10 pt-3 sm:pt-4">
         {/* Modul 1: Sasis Abu-abu Menampung Latar Penghubung dan Card Hero */}
         <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
           <Hero profile={dummyProfile} />
@@ -60,6 +61,9 @@ export default function HomePage() {
           {/* Section Projects: Langsung Menempel pada Sasis Abu-abu */}
           <Projects projects={dummyProjects} />
         </main>
+
+        {/* Footer Keterangan Sesuai Gambar 2 */}
+        <Footer name={dummyProfile.name} />
       </div>
     </div>
   );
