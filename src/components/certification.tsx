@@ -13,7 +13,7 @@ export function Certification({ certifications }: CertificationProps) {
     <section
       id="certification"
       aria-label="Sertifikasi"
-      className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-4 sm:pb-5 md:pb-6"
+      className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
     >
       {/* Header Section Sesuai Konsistensi Website (Gambar 1) */}
       <div className="flex flex-col">
@@ -30,7 +30,7 @@ export function Certification({ certifications }: CertificationProps) {
         {certifications.map((cert) => (
           <div
             key={cert.id}
-            className="rounded-[18px] bg-surface px-4 py-3.5 sm:px-5 sm:py-4 md:px-6 md:py-4.5 transition-colors duration-200"
+            className="rounded-[18px] bg-surface px-5 py-4 sm:px-6 sm:py-5 transition-colors duration-200"
           >
             <div className="flex items-center justify-between gap-4">
               <div className="flex flex-col min-w-0">
