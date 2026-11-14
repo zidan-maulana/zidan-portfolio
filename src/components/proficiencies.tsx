@@ -4,11 +4,13 @@ import type { SkillCard, TechToolItem } from "@/lib/dummy-data";
 interface ProficienciesProps {
   skills: SkillCard[];
   tools: TechToolItem[];
+  className?: string;
 }
 
 export function Proficiencies({
   skills,
   tools,
+  className,
 }: ProficienciesProps) {
   if (!skills || skills.length === 0) {
     return null;
@@ -18,7 +20,10 @@ export function Proficiencies({
     <section
       id="proficiencies"
       aria-label="Keahlian dan Penguasaan Alat"
-      className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
+      className={
+        className ??
+        "relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
+      }
     >
       {/* Header Utama Section Sesuai Konsistensi Website */}
       <div className="flex flex-col">
@@ -77,9 +82,8 @@ export function Proficiencies({
                     alt={item.name}
                     width={28}
                     height={28}
-                    className={`w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${
-                      item.icon === "express" || item.icon === "nextjs" ? "dark:invert" : ""
-                    }`}
+                    className={`w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${item.icon === "express" || item.icon === "nextjs" ? "dark:invert" : ""
+                      }`}
                   />
                 </div>
               ))}
@@ -101,9 +105,8 @@ export function Proficiencies({
                     alt={item.name}
                     width={28}
                     height={28}
-                    className={`w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${
-                      item.icon === "express" || item.icon === "nextjs" ? "dark:invert" : ""
-                    }`}
+                    className={`w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${item.icon === "express" || item.icon === "nextjs" ? "dark:invert" : ""
+                      }`}
                   />
                 </div>
               ))}

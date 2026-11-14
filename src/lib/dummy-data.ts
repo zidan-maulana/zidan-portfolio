@@ -31,6 +31,7 @@ export interface Profile {
   socials: Array<{
     label: string;
     url: string;
+    handle?: string;
   }>;
 }
 
@@ -113,9 +114,9 @@ export const dummyProfile: Profile = {
   bookingUrl: "mailto:zidan@example.com",
   projectsUrl: "#projects",
   socials: [
-    { label: "GitHub", url: "https://github.com" },
-    { label: "LinkedIn", url: "https://linkedin.com" },
-    { label: "Instagram", url: "https://instagram.com" },
+    { label: "LinkedIn", url: "https://linkedin.com", handle: "/in/zidanmaulana" },
+    { label: "GitHub", url: "https://github.com", handle: "zidanmaulana" },
+    { label: "Instagram", url: "https://instagram.com", handle: "@zidanmaulana" },
   ],
 };
 
