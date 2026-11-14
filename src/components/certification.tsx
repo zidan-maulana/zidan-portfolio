@@ -70,17 +70,18 @@ function CertificationCard({ cert }: { cert: CertificationType }) {
               duration: 0.38,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className={`h-10 sm:h-11 rounded-[13px] flex items-center justify-center shrink-0 cursor-pointer overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text motion-reduce:transform-none ${isHovered
+            className={`h-10 sm:h-11 rounded-[13px] flex items-center justify-center shrink-0 cursor-pointer overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text motion-reduce:transform-none ${
+              isHovered
                 ? "bg-border/90 dark:bg-white/10 text-text"
-                : "bg-nav-bg text-muted"
-              }`}
+                : "bg-btn-action-bg text-muted"
+            }`}
             aria-label={`Buka sertifikat ${cert.title}`}
           >
             <ArrowRight size={20} weight="regular" className="shrink-0" aria-hidden="true" />
           </motion.a>
         ) : (
           <div
-            className="h-10 w-10 sm:h-11 sm:w-11 rounded-[13px] bg-nav-bg flex items-center justify-center shrink-0 text-muted/50"
+            className="h-10 w-10 sm:h-11 sm:w-11 rounded-[13px] bg-btn-action-bg flex items-center justify-center shrink-0 text-muted/50"
             aria-hidden="true"
           >
             <ArrowRight size={20} weight="regular" className="shrink-0" />

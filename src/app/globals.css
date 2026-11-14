@@ -26,26 +26,28 @@
   --btn-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   --btn-icon-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   --hero-grid-stroke: #E5E7EB;
+  --btn-action-bg: #f3f4f6;
 }
 
 .dark {
-  --page: #0A0A0A;
-  --surface: #141414;
-  --nav-bg: #1A1A1A;
-  --text: #F5F5F5;
-  --muted: #999999;
-  --muted-light: #6E6E6E;
-  --border: #242424;
-  --border-subtle: #1C1C1C;
+  --page: #141414;
+  --surface: #1F1F1F;
+  --nav-bg: #181818;
+  --text: #FFFFFF;
+  --muted: #8A8A8A;
+  --muted-light: #666666;
+  --border: #282828;
+  --border-subtle: #202020;
   --accent: #22C55E;
   --accent-soft: #0E2909;
-  --btn-primary-bg: #F5F5F5;
+  --btn-primary-bg: #FFFFFF;
   --btn-primary-text: #0E0E0E;
   --btn-primary-border: rgba(255, 255, 255, 0.15);
-  --btn-secondary-bg: #141414;
-  --btn-secondary-text: #F5F5F5;
+  --btn-secondary-bg: #1F1F1F;
+  --btn-secondary-text: #FFFFFF;
   --btn-secondary-border: #282828;
-  --btn-secondary-hover: #1A1A1C;
+  --btn-secondary-hover: #262626;
+  --btn-action-bg: #303030;
   --btn-primary-shadow: 0 4px 14px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   --btn-secondary-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   --btn-secondary-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 12px 14px -6px rgba(255, 255, 255, 0.06), inset 0 -1.5px 0 rgba(0, 0, 0, 0.6);
@@ -63,6 +65,7 @@
   --color-muted-light: var(--muted-light);
   --color-border: var(--border);
   --color-border-subtle: var(--border-subtle);
+  --color-btn-action-bg: var(--btn-action-bg);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-btn-primary-bg: var(--btn-primary-bg);

@@ -54,7 +54,7 @@ function ContactRow({ item }: { item: ContactItem }) {
           className={`h-10 sm:h-11 rounded-[13px] flex items-center justify-center shrink-0 overflow-hidden transition-colors duration-200 ${
             isHovered
               ? "bg-border/90 dark:bg-white/10 text-text"
-              : "bg-nav-bg text-muted"
+              : "bg-btn-action-bg text-muted"
           }`}
           aria-hidden="true"
         >
