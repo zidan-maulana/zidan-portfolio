@@ -19,7 +19,7 @@ import {
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-page text-text flex flex-col items-center justify-start px-3 sm:px-6 pb-12">
+    <div className="min-h-screen bg-page text-text flex flex-col items-center justify-start px-3 sm:px-6 pb-16 sm:pb-24">
       {/*
         Lapisan Penutup Atas (Canopy) - z-40:
         - Berada di posisi fixed dari y = -100px sampai separuh atas navbar (y = 44px)

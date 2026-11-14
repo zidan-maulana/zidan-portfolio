@@ -1,28 +1,28 @@
 "use client";
 
+import { motion, type HTMLMotionProps } from "motion/react";
 import React from "react";
-import { motion, type HTMLMotionProps, useReducedMotion } from "framer-motion";
 
 interface HoverLiftProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
-  lift?: number;
   className?: string;
+  y?: number;
+  scale?: number;
 }
 
 export function HoverLift({
   children,
-  lift = -3,
   className = "",
+  y = -2.5,
+  scale = 1.02,
   ...props
 }: HoverLiftProps) {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <motion.div
-      whileHover={shouldReduceMotion ? undefined : { y: lift }}
-      whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      className={className}
+      whileHover={{ y, scale }}
+      whileTap={{ scale: 0.96 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={`inline-flex motion-reduce:transform-none ${className}`}
       {...props}
     >
       {children}
@@ -30,53 +30,26 @@ export function HoverLift({
   );
 }
 
-interface HoverLiftButtonProps extends HTMLMotionProps<"button"> {
+interface HoverLiftLinkProps extends HTMLMotionProps<"a"> {
   children: React.ReactNode;
-  lift?: number;
   className?: string;
+  y?: number;
+  scale?: number;
 }
 
-export function HoverLiftButton({
+export function HoverLiftLink({
   children,
-  lift = -3,
   className = "",
+  y = -2.5,
+  scale = 1.02,
   ...props
-}: HoverLiftButtonProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  return (
-    <motion.button
-      whileHover={shouldReduceMotion ? undefined : { y: lift }}
-      whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      className={className}
-      {...props}
-    >
-      {children}
-    </motion.button>
-  );
-}
-
-interface HoverLiftAnchorProps extends HTMLMotionProps<"a"> {
-  children: React.ReactNode;
-  lift?: number;
-  className?: string;
-}
-
-export function HoverLiftAnchor({
-  children,
-  lift = -3,
-  className = "",
-  ...props
-}: HoverLiftAnchorProps) {
-  const shouldReduceMotion = useReducedMotion();
-
+}: HoverLiftLinkProps) {
   return (
     <motion.a
-      whileHover={shouldReduceMotion ? undefined : { y: lift }}
-      whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      className={className}
+      whileHover={{ y, scale }}
+      whileTap={{ scale: 0.96 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={`inline-flex motion-reduce:transform-none ${className}`}
       {...props}
     >
       {children}

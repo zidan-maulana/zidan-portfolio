@@ -34,9 +34,9 @@ export function Projects({ projects }: ProjectsProps) {
         ))}
       </div>
 
-      {/* Tombol Aksi di Bagian Bawah: See my Projects Sesuai Screenshot Referensi (Hover Lift Framer Motion) */}
+      {/* Tombol Aksi di Bagian Bawah: See my Projects Sesuai Screenshot Referensi */}
       <div className="mt-8 sm:mt-10 flex justify-center">
-        <HoverLift lift={-3}>
+        <HoverLift>
           <Link
             href="/projects"
             className="inline-flex h-[44px] cursor-pointer items-center justify-center rounded-[14px] border border-btn-secondary-border bg-surface px-7 font-display text-[14.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-colors duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"

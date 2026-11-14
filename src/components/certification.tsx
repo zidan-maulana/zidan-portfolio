@@ -1,6 +1,6 @@
 "use client";
 
-import { HoverLiftAnchor } from "@/components/hover-lift";
+import { motion } from "motion/react";
 import type { Certification as CertificationType } from "@/lib/dummy-data";
 
 interface CertificationProps {
@@ -18,7 +18,7 @@ export function Certification({ certifications }: CertificationProps) {
       aria-label="Sertifikasi"
       className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
     >
-      {/* Header Section Sesuai Konsistensi Website (Gambar 1) */}
+      {/* Header Section Sesuai Konsistensi Website */}
       <div className="flex flex-col">
         <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Certification
@@ -28,7 +28,7 @@ export function Certification({ certifications }: CertificationProps) {
         </p>
       </div>
 
-      {/* Daftar Kartu Sertifikasi Sesuai Komposisi Referensi (Tanpa Stroke, Baris Panah) */}
+      {/* Daftar Kartu Sertifikasi Sesuai Komposisi Referensi */}
       <div className="mt-6 sm:mt-8 flex flex-col gap-3.5 sm:gap-4">
         {certifications.map((cert) => (
           <div
@@ -72,14 +72,16 @@ export function Certification({ certifications }: CertificationProps) {
                 </div>
               </div>
 
-              {/* Tombol Aksi / Tautan Sertifikat dengan Ikon Panah Sesuai Referensi (Hover Lift Framer Motion) */}
+              {/* Tombol Aksi / Tautan Sertifikat dengan Effect Hover Lift Framer Motion Sesuai Referensi */}
               {cert.url ? (
-                <HoverLiftAnchor
+                <motion.a
                   href={cert.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  lift={-3}
-                  className="h-10 w-10 sm:h-11 sm:w-11 rounded-[12px] bg-nav-bg flex items-center justify-center shrink-0 text-muted transition-colors duration-200 hover:bg-btn-secondary-hover hover:text-text hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
+                  whileHover={{ y: -2.5, scale: 1.03 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="h-10 w-10 sm:h-11 sm:w-11 rounded-[12px] bg-nav-bg flex items-center justify-center shrink-0 text-muted transition-colors duration-200 hover:bg-border/80 hover:text-text hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text motion-reduce:transform-none cursor-pointer"
                   aria-label={`Buka sertifikat ${cert.title}`}
                 >
                   <svg
@@ -94,7 +96,7 @@ export function Certification({ certifications }: CertificationProps) {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </HoverLiftAnchor>
+                </motion.a>
               ) : (
                 <div
                   className="h-10 w-10 sm:h-11 sm:w-11 rounded-[12px] bg-nav-bg flex items-center justify-center shrink-0 text-muted/50"

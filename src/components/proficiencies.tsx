@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ProgressiveBlur } from "@/components/progressive-blur";
 import type { SkillCard, TechToolItem } from "@/lib/dummy-data";
 
 interface ProficienciesProps {
@@ -36,7 +35,7 @@ export function Proficiencies({
         {skills.map((skill) => (
           <div
             key={skill.id}
-            className="relative flex flex-col justify-between rounded-[18px] sm:rounded-[20px] bg-surface p-5 sm:p-6 md:p-7 min-h-[160px] sm:min-h-[175px] md:min-h-[185px] transition-colors duration-200 overflow-hidden"
+            className="flex flex-col justify-between rounded-[18px] sm:rounded-[20px] bg-surface p-5 sm:p-6 md:p-7 min-h-[160px] sm:min-h-[175px] md:min-h-[185px] transition-colors duration-200"
           >
             {/* Angka Numerik dengan Sedikit Jarak Bawah */}
             <span className="font-display text-[30px] font-light text-muted-light/35 dark:text-muted/25 leading-none select-none mb-5 sm:mb-6">
@@ -52,12 +51,6 @@ export function Proficiencies({
                 {skill.description}
               </p>
             </div>
-
-            {/* Efek Progressive Backdrop Blur di Bagian Bawah Kartu Sesuai Referensi Gambar 2 */}
-            <ProgressiveBlur
-              direction="bottom"
-              className="absolute inset-x-0 bottom-0 h-10 sm:h-12 rounded-b-[18px] sm:rounded-b-[20px]"
-            />
           </div>
         ))}
       </div>

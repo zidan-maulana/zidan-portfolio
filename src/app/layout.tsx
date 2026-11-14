@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import { ProgressiveBlur } from "@/components/progressive-blur";
 import { dummyProfile } from "@/lib/dummy-data";
 import "./globals.css";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <SmoothScrollProvider>{children}</SmoothScrollProvider>
+          <ProgressiveBlur />
         </ThemeProvider>
       </body>
     </html>
