@@ -166,9 +166,9 @@ export function Header({
       <nav
         className={`w-full rounded-[24px] bg-nav-bg/85 dark:bg-nav-bg/90 backdrop-blur-md border ${
           mobileMenuOpen
-            ? "border-border/70 dark:border-border/40 shadow-lg"
+            ? "border-border/70 dark:border-border/40"
             : "border-border/40 dark:border-border/20"
-        } transition-all duration-200 overflow-hidden`}
+        } transition-colors duration-300 overflow-hidden`}
         aria-label="Navigasi Utama"
       >
         {/* Top bar row */}
@@ -224,7 +224,7 @@ export function Header({
             ))}
           </div>
 
-          {/* Mobile hamburger / close button without button shape */}
+          {/* Mobile hamburger / close button with smooth line-to-X animation */}
           <div className="flex sm:hidden items-center gap-1 shrink-0">
             <button
               type="button"
@@ -233,40 +233,53 @@ export function Header({
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
             >
-              {mobileMenuOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="19"
-                  height="19"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="19"
-                  height="19"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <line x1="4" x2="20" y1="6" y2="6" />
-                  <line x1="4" x2="20" y1="12" y2="12" />
-                  <line x1="4" x2="20" y1="18" y2="18" />
-                </svg>
-              )}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                {/* Top line morphs to \ of X */}
+                <motion.path
+                  initial={false}
+                  animate={{
+                    d: mobileMenuOpen ? "M 6 6 L 18 18" : "M 4 6 L 20 6",
+                  }}
+                  transition={{
+                    duration: 0.52,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                />
+                {/* Middle line fades and collapses */}
+                <motion.path
+                  initial={false}
+                  animate={{
+                    d: mobileMenuOpen ? "M 12 12 L 12 12" : "M 4 12 L 20 12",
+                    opacity: mobileMenuOpen ? 0 : 1,
+                  }}
+                  transition={{
+                    duration: 0.38,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                />
+                {/* Bottom line morphs to / of X */}
+                <motion.path
+                  initial={false}
+                  animate={{
+                    d: mobileMenuOpen ? "M 6 18 L 18 6" : "M 4 18 L 20 18",
+                  }}
+                  transition={{
+                    duration: 0.52,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -281,16 +294,16 @@ export function Header({
                 height: "auto",
                 opacity: 1,
                 transition: {
-                  height: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
-                  opacity: { duration: 0.25, delay: 0.05 },
+                  height: { duration: 0.52, ease: [0.22, 1, 0.36, 1] },
+                  opacity: { duration: 0.42, delay: 0.06, ease: [0.22, 1, 0.36, 1] },
                 },
               }}
               exit={{
                 height: 0,
                 opacity: 0,
                 transition: {
-                  height: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
-                  opacity: { duration: 0.15 },
+                  height: { duration: 0.42, ease: [0.22, 1, 0.36, 1] },
+                  opacity: { duration: 0.28, ease: "easeOut" },
                 },
               }}
               className="overflow-hidden sm:hidden"
@@ -298,9 +311,10 @@ export function Header({
               <div className="flex flex-col items-center px-5 pt-6 pb-7">
                 {/* Centered navigation items */}
                 <motion.div
-                  initial={{ opacity: 0, y: -6 }}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.25, delay: 0.08 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                   className="flex flex-col items-center gap-4 text-center"
                 >
                   {navItems.map((item) => (
@@ -318,9 +332,10 @@ export function Header({
                 {/* Centered social links at bottom */}
                 {socials.length > 0 && (
                   <motion.div
-                    initial={{ opacity: 0, y: 6 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25, delay: 0.12 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.45, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
                     className="mt-8 flex items-center justify-center gap-2.5"
                   >
                     {socials.map((social) => (
