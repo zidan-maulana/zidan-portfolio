@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import type { Certification as CertificationType } from "@/lib/dummy-data";
 
 interface CertificationProps {
@@ -62,50 +63,27 @@ function CertificationCard({ cert }: { cert: CertificationType }) {
             rel="noopener noreferrer"
             initial={false}
             animate={{
-              width: isHovered ? 68 : 42,
+              width: isHovered ? 56 : 42,
             }}
             whileTap={{ scale: 0.95 }}
             transition={{
-              type: "spring",
-              stiffness: 420,
-              damping: 28,
+              duration: 0.38,
+              ease: [0.22, 1, 0.36, 1],
             }}
-            className={`h-10 sm:h-11 rounded-[13px] flex items-center justify-center shrink-0 cursor-pointer overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text motion-reduce:transform-none ${
-              isHovered
+            className={`h-10 sm:h-11 rounded-[13px] flex items-center justify-center shrink-0 cursor-pointer overflow-hidden transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text motion-reduce:transform-none ${isHovered
                 ? "bg-border/90 dark:bg-white/10 text-text"
                 : "bg-nav-bg text-muted"
-            }`}
+              }`}
             aria-label={`Buka sertifikat ${cert.title}`}
           >
-            <svg
-              className="h-4 w-4 shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <ArrowRight size={20} weight="regular" className="shrink-0" aria-hidden="true" />
           </motion.a>
         ) : (
           <div
             className="h-10 w-10 sm:h-11 sm:w-11 rounded-[13px] bg-nav-bg flex items-center justify-center shrink-0 text-muted/50"
             aria-hidden="true"
           >
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <ArrowRight size={20} weight="regular" className="shrink-0" />
           </div>
         )}
       </div>
