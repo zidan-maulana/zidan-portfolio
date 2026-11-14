@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 
-const emptySubscribe = () => () => {};
+const emptySubscribe = () => () => { };
 
 function useMounted() {
   return useSyncExternalStore(
@@ -19,14 +19,12 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button
-        type="button"
-        className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-muted shadow-btn-icon shrink-0"
-        aria-label="Memuat pengalih tema"
-        disabled
+      <span
+        className="inline-flex items-center justify-center p-1 text-muted shrink-0"
+        aria-hidden="true"
       >
-        <span className="h-3.5 w-3.5" />
-      </button>
+        <span className="h-4 w-4" />
+      </span>
     );
   }
 
@@ -36,7 +34,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex h-[34px] w-[34px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-500 ease-out hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
+      className="inline-flex cursor-pointer items-center justify-center p-1 text-muted hover:text-text transition-colors duration-200 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
       aria-label={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
       title={isDark ? "Ganti ke tema terang" : "Ganti ke tema gelap"}
     >

@@ -125,8 +125,9 @@ export function Header({
       className="flex h-[56px] sm:h-[60px] w-full items-center justify-between px-5 sm:px-6 rounded-[24px] bg-nav-bg/80 backdrop-blur-md transition-colors duration-200"
       aria-label="Navigasi Utama"
     >
-      {/* Kelompok Kiri: Jam Digital dan Lokasi */}
-      <div className="flex items-center shrink-0 whitespace-nowrap">
+      {/* Kelompok Kiri: Tombol Tema (Tanpa Shape) dan Jam Digital */}
+      <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 whitespace-nowrap">
+        <ThemeToggle />
         <LiveClock timezone={timezone} location={location} />
       </div>
 
@@ -158,7 +159,7 @@ export function Header({
         ))}
       </div>
 
-      {/* Kelompok Kanan: 4 Tombol Kotak */}
+      {/* Kelompok Kanan: Tombol Sosial Media */}
       <div className="hidden sm:flex items-center gap-2 shrink-0">
         {socials.map((social) => (
           <a
@@ -173,12 +174,10 @@ export function Header({
             {renderSocialIcon(social.label)}
           </a>
         ))}
-        <ThemeToggle />
       </div>
 
       {/* Menu Tombol Hamburger untuk Layar Mobile */}
       <div className="flex sm:hidden items-center gap-2 shrink-0">
-        <ThemeToggle />
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

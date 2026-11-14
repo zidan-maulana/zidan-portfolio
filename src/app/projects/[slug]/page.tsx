@@ -103,7 +103,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-[38px] sm:h-[40px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface px-5 font-display text-[13.5px] sm:text-[14px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+                  className="inline-flex h-[38px] sm:h-[40px] items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface px-5 font-display text-[13.5px] sm:text-[14px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover dark:bg-white dark:text-btn-primary-text dark:border-transparent dark:hover:bg-white/90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
                 >
                   Preview Project
                 </a>

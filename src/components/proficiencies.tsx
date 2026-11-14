@@ -40,10 +40,10 @@ export function Proficiencies({
         {skills.map((skill) => (
           <div
             key={skill.id}
-            className="flex flex-col justify-between rounded-[18px] sm:rounded-[20px] bg-surface p-5 sm:p-6 md:p-7 min-h-[160px] sm:min-h-[175px] md:min-h-[185px] transition-colors duration-200"
+            className="flex flex-col justify-between rounded-[18px] sm:rounded-[20px] bg-surface p-5 sm:p-6 md:p-7 min-h-[170px] sm:min-h-[185px] md:min-h-[195px] transition-colors duration-200"
           >
             {/* Angka Numerik dengan Sedikit Jarak Bawah */}
-            <span className="font-display text-[30px] font-light text-muted-light/35 dark:text-muted/25 leading-none select-none mb-5 sm:mb-6">
+            <span className="font-display text-[30px] font-light text-muted-light/35 dark:text-muted/25 leading-none select-none mb-8 sm:mb-9 md:mb-10">
               {skill.number}
             </span>
 

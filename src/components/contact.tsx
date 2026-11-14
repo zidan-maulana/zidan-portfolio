@@ -27,7 +27,7 @@ function ContactRow({ item }: { item: ContactItem }) {
       rel={item.isExternal ? "noopener noreferrer" : undefined}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group flex items-center justify-between gap-3 sm:gap-4 rounded-[16px] sm:rounded-[18px] border border-border/70 dark:border-border/40 bg-surface px-4 py-3 sm:px-5 sm:py-3.5 transition-all duration-200 hover:border-text/30 hover:bg-nav-bg/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+      className="group flex items-center justify-between gap-3 sm:gap-4 rounded-[16px] sm:rounded-[18px] border border-border/70 dark:border-white/10 bg-surface dark:bg-contact-row-bg px-4 py-3 sm:px-5 sm:py-3.5 transition-all duration-200 hover:border-text/30 hover:bg-nav-bg/35 dark:hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
       aria-label={`${item.label}: ${item.value}`}
     >
       {/* Label di Sisi Kiri */}
@@ -53,8 +53,8 @@ function ContactRow({ item }: { item: ContactItem }) {
           }}
           className={`h-10 sm:h-11 rounded-[13px] flex items-center justify-center shrink-0 overflow-hidden transition-colors duration-200 ${
             isHovered
-              ? "bg-border/90 dark:bg-white/10 text-text"
-              : "bg-nav-bg text-muted"
+              ? "bg-border/90 dark:bg-white/20 text-text"
+              : "bg-nav-bg text-muted dark:bg-white/10"
           }`}
           aria-hidden="true"
         >
@@ -114,7 +114,7 @@ export function Contact({ profile }: ContactProps) {
     <section
       id="contact"
       aria-label="Kontak dan Informasi Terhubung"
-      className="relative w-full overflow-hidden rounded-[22px] sm:rounded-[23px] bg-surface p-5 sm:p-6 md:p-8 scroll-mt-24"
+      className="relative w-full overflow-hidden rounded-[22px] sm:rounded-[23px] bg-surface dark:bg-contact-card-bg px-4 sm:px-6 md:px-7 py-5 sm:py-6 md:py-7 scroll-mt-24 border border-border/40 dark:border-white/5"
     >
       {/* Header Section Kontak Sesuai Style Kita */}
       <div className="flex flex-col mb-5 sm:mb-6">

@@ -39,7 +39,7 @@ export function Projects({ projects }: ProjectsProps) {
         <HoverLift>
           <Link
             href="/projects"
-            className="inline-flex h-[44px] cursor-pointer items-center justify-center rounded-[14px] border border-btn-secondary-border bg-surface px-7 font-display text-[14.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-colors duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            className="inline-flex h-[44px] cursor-pointer items-center justify-center rounded-[14px] border border-btn-secondary-border bg-surface px-7 font-display text-[14.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-colors duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover dark:bg-white dark:text-btn-primary-text dark:border-transparent dark:hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             See my Projects
           </Link>
