@@ -13,7 +13,7 @@ export function Education({ educations }: EducationProps) {
     <section
       id="education"
       aria-label="Pendidikan"
-      className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 py-6 sm:py-8 md:py-[44px]"
+      className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-4 sm:pb-5 md:pb-6"
     >
       {/* Header Section Sesuai Konsistensi Website (Gambar 1) */}
       <div className="flex flex-col">
@@ -30,7 +30,7 @@ export function Education({ educations }: EducationProps) {
         {educations.map((edu) => (
           <div
             key={edu.id}
-            className="rounded-[18px] bg-surface p-5 sm:p-6 transition-colors duration-200"
+            className="rounded-[18px] bg-surface px-4 py-4 sm:px-5 sm:py-4.5 md:px-6 md:py-5 transition-colors duration-200"
           >
             <div className="flex flex-col">
               {/* Nama Institusi Pendidikan */}
@@ -49,7 +49,7 @@ export function Education({ educations }: EducationProps) {
               </p>
 
               {/* Baris Metadata: Periode dan Lokasi */}
-              <div className="mt-4 sm:mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12.5px] sm:text-[13px] text-muted">
+              <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12.5px] sm:text-[13px] text-muted">
                 <div className="inline-flex items-center gap-1.5">
                   <svg
                     className="h-3.5 w-3.5 shrink-0 text-muted"
