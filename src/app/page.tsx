@@ -3,8 +3,16 @@ import { Hero } from "@/components/hero";
 import { Overview } from "@/components/overview";
 import { Projects } from "@/components/projects";
 import { Experience } from "@/components/experience";
+import { Education } from "@/components/education";
+import { Certification } from "@/components/certification";
 import { Footer } from "@/components/footer";
-import { dummyProfile, dummyProjects, dummyExperiences } from "@/lib/dummy-data";
+import {
+  dummyProfile,
+  dummyProjects,
+  dummyExperiences,
+  dummyEducations,
+  dummyCertifications,
+} from "@/lib/dummy-data";
 
 export default function HomePage() {
   return (
@@ -65,6 +73,12 @@ export default function HomePage() {
 
         {/* Modul 3: Sasis Abu-abu Menampung Section Experience Terpisah */}
         <Experience experiences={dummyExperiences} />
+
+        {/* Modul 4: Sasis Abu-abu Menampung Section Education */}
+        <Education educations={dummyEducations} />
+
+        {/* Modul 5: Sasis Abu-abu Menampung Section Certification */}
+        <Certification certifications={dummyCertifications} />
 
         {/* Footer Keterangan Sesuai Gambar 2 */}
         <Footer name={dummyProfile.name} />

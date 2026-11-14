@@ -520,3 +520,62 @@ export const dummyExperiences: Experience[] = [
   },
 ];
 
+export interface Education {
+  id: string;
+  institution: string;
+  degree: string;
+  description: string;
+  startDate: string;
+  endDate?: string;
+  location: string;
+}
+
+export const dummyEducations: Education[] = [
+  {
+    id: "edu-1",
+    institution: "Universitas Pembangunan Nasional Veteran Jakarta",
+    degree: "Bachelor of Science in Informatics",
+    description:
+      "Studying computer science fundamentals, distributed software systems, data structures, and human-computer interaction with hands-on web development practice.",
+    startDate: "September 2022",
+    endDate: "Present",
+    location: "Jakarta, ID",
+  },
+  {
+    id: "edu-2",
+    institution: "SMA Negeri 28 Jakarta",
+    degree: "Natural Sciences & Mathematics",
+    description:
+      "Completed secondary education with rigorous coursework in advanced mathematics, analytical physics, and introductory computer programming.",
+    startDate: "July 2019",
+    endDate: "June 2022",
+    location: "Jakarta, ID",
+  },
+];
+
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  url?: string;
+}
+
+export const dummyCertifications: Certification[] = [
+  {
+    id: "cert-1",
+    title: "Meta Front-End Developer Professional Certificate",
+    issuer: "Meta",
+    date: "April 2024",
+    url: "https://coursera.org",
+  },
+  {
+    id: "cert-2",
+    title: "React & Next.js Web Architecture Specialist",
+    issuer: "Dicoding Indonesia",
+    date: "October 2023",
+    url: "https://dicoding.com",
+  },
+];
+
+
