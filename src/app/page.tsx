@@ -2,8 +2,9 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Overview } from "@/components/overview";
 import { Projects } from "@/components/projects";
+import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
-import { dummyProfile, dummyProjects } from "@/lib/dummy-data";
+import { dummyProfile, dummyProjects, dummyExperiences } from "@/lib/dummy-data";
 
 export default function HomePage() {
   return (
@@ -53,13 +54,16 @@ export default function HomePage() {
           <Hero profile={dummyProfile} />
         </div>
 
-        {/* Modul 2: Sasis Abu-abu Menampung Card About dan Section Projects */}
+        {/* Modul 2: Sasis Abu-abu Menampung Card About, Section Projects, dan Experience */}
         <main className="w-full rounded-[25px] bg-nav-bg p-[1.5px] flex flex-col gap-[2px]">
           {/* Section About: Kartu Putih Mandiri */}
           <Overview profile={dummyProfile} />
 
           {/* Section Projects: Langsung Menempel pada Sasis Abu-abu */}
           <Projects projects={dummyProjects} />
+
+          {/* Section Experience: Kartu Putih Mandiri Sesuai Referensi */}
+          <Experience experiences={dummyExperiences} />
         </main>
 
         {/* Footer Keterangan Sesuai Gambar 2 */}

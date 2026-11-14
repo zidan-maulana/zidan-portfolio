@@ -452,3 +452,71 @@ export const dummyProjects: Project[] = [
     order: 6,
   },
 ];
+
+export interface Experience {
+  id: string;
+  organization: string;
+  role: string;
+  description: string;
+  startDate: string;
+  endDate?: string;
+  location: string;
+  logo: {
+    asset: {
+      url: string;
+    };
+    alt: string;
+  };
+}
+
+export const dummyExperiences: Experience[] = [
+  {
+    id: "exp-1",
+    organization: "Freelance & Open Source",
+    role: "Full Stack Developer",
+    description:
+      "Designing and building modern web applications, high-performance user interfaces, and custom frontend architectures for independent clients and open source initiatives.",
+    startDate: "July 2024",
+    endDate: "Now",
+    location: "Jakarta, ID",
+    logo: {
+      asset: {
+        url: "/experience/freelance.svg",
+      },
+      alt: "Freelance Full Stack Developer logo badge",
+    },
+  },
+  {
+    id: "exp-2",
+    organization: "Karsa Digital Studio",
+    role: "Frontend Engineering Intern",
+    description:
+      "Developed responsive web components and interactive design systems with strict accessibility compliance, collaborating with senior engineers to optimize client-side bundle performance.",
+    startDate: "August 2023",
+    endDate: "June 2024",
+    location: "Jakarta, ID",
+    logo: {
+      asset: {
+        url: "/experience/karsa.svg",
+      },
+      alt: "Karsa Digital Studio logo badge",
+    },
+  },
+  {
+    id: "exp-3",
+    organization: "Informatics Computer Laboratory",
+    role: "Web Development Lab Assistant",
+    description:
+      "Mentored undergraduate students in modern frontend workflows, data structures, and algorithmic programming while maintaining internal lab portal software.",
+    startDate: "September 2022",
+    endDate: "July 2023",
+    location: "Depok, ID",
+    logo: {
+      asset: {
+        url: "/experience/lab.svg",
+      },
+      alt: "Informatics Computer Laboratory logo badge",
+    },
+  },
+];
+
