@@ -52,7 +52,7 @@ export function Overview({ profile }: OverviewProps) {
           <span>{profile.email || "zidan@example.com"}</span>
         </a>
 
-        <span className="text-muted-light select-none" aria-hidden="true">
+        <span className="hidden sm:inline text-muted-light select-none" aria-hidden="true">
           ·
         </span>
 
@@ -62,7 +62,7 @@ export function Overview({ profile }: OverviewProps) {
               ? `tel:${profile.phone.replace(/\s+/g, "")}`
               : "tel:+6281234567890"
           }
-          className="inline-flex items-center gap-1.5 transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text rounded-sm"
+          className="hidden sm:inline-flex items-center gap-1.5 transition-colors hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text rounded-sm"
           aria-label={`Hubungi nomor telepon ${profile.phone || "+62 812 3456 7890"}`}
         >
           <svg
