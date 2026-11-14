@@ -133,5 +133,11 @@ export const profile = defineType({
       type: 'string',
       initialValue: '#projects',
     }),
+    defineField({
+      name: 'contactSubhead',
+      title: 'Deskripsi Singkat Section Kontak',
+      type: 'string',
+      initialValue: 'Get in touch for collaborations, project inquiries, or opportunities.',
+    }),
   ],
 })
