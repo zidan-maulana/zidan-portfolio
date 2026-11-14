@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Project } from "@/lib/dummy-data";
 import { ProjectCard } from "@/components/project-card";
+import { HoverLift } from "@/components/hover-lift";
 
 interface ProjectsProps {
   projects: Project[];
@@ -33,14 +34,16 @@ export function Projects({ projects }: ProjectsProps) {
         ))}
       </div>
 
-      {/* Tombol Aksi di Bagian Bawah: See my Projects Sesuai Screenshot Referensi */}
+      {/* Tombol Aksi di Bagian Bawah: See my Projects Sesuai Screenshot Referensi (Hover Lift Framer Motion) */}
       <div className="mt-8 sm:mt-10 flex justify-center">
-        <Link
-          href="/projects"
-          className="inline-flex h-[44px] cursor-pointer items-center justify-center rounded-[14px] border border-btn-secondary-border bg-surface px-7 font-display text-[14.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
-        >
-          See my Projects
-        </Link>
+        <HoverLift lift={-3}>
+          <Link
+            href="/projects"
+            className="inline-flex h-[44px] cursor-pointer items-center justify-center rounded-[14px] border border-btn-secondary-border bg-surface px-7 font-display text-[14.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-colors duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+          >
+            See my Projects
+          </Link>
+        </HoverLift>
       </div>
     </section>
   );

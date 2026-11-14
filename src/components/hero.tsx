@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import type { Profile } from "@/lib/dummy-data";
 import { RollingTitle } from "@/components/rolling-title";
 import { HeroGrid } from "@/components/hero-grid";
+import { HoverLiftAnchor } from "@/components/hover-lift";
 
 interface HeroProps {
   profile: Profile;
@@ -84,21 +87,23 @@ export function Hero({ profile }: HeroProps) {
           </p>
         </div>
 
-        {/* Tombol Aksi Sesuai PRD: Get in Touch dan Download CV */}
+        {/* Tombol Aksi Sesuai PRD: Get in Touch dan Download CV dengan Hover Lift Framer Motion */}
         <div className="mt-6 sm:mt-7 flex flex-row items-center gap-3">
-          <a
+          <HoverLiftAnchor
             href={profile.email ? `mailto:${profile.email}` : "mailto:zidan@example.com"}
-            className="inline-flex h-[40px] items-center justify-center rounded-[13px] border border-btn-primary-border bg-btn-primary-bg px-5 font-display text-[13.5px] font-medium text-btn-primary-text shadow-btn-primary transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            lift={-2.5}
+            className="inline-flex h-[40px] items-center justify-center rounded-[13px] border border-btn-primary-border bg-btn-primary-bg px-5 font-display text-[13.5px] font-medium text-btn-primary-text shadow-btn-primary transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
           >
             Get in Touch
-          </a>
-          <a
+          </HoverLiftAnchor>
+          <HoverLiftAnchor
             href={profile.cv.asset.url}
             download
-            className="inline-flex h-[40px] cursor-pointer items-center justify-center rounded-[13px] border border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+            lift={-2.5}
+            className="inline-flex h-[40px] cursor-pointer items-center justify-center rounded-[13px] border border-btn-secondary-border bg-btn-secondary-bg px-5 font-display text-[13.5px] font-medium text-btn-secondary-text shadow-btn-secondary transition-colors duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-secondary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
           >
             Download CV
-          </a>
+          </HoverLiftAnchor>
         </div>
       </div>
     </section>

@@ -1,3 +1,6 @@
+"use client";
+
+import { HoverLiftAnchor } from "@/components/hover-lift";
 import type { Certification as CertificationType } from "@/lib/dummy-data";
 
 interface CertificationProps {
@@ -69,13 +72,14 @@ export function Certification({ certifications }: CertificationProps) {
                 </div>
               </div>
 
-              {/* Tombol Aksi / Tautan Sertifikat dengan Ikon Panah Sesuai Referensi */}
+              {/* Tombol Aksi / Tautan Sertifikat dengan Ikon Panah Sesuai Referensi (Hover Lift Framer Motion) */}
               {cert.url ? (
-                <a
+                <HoverLiftAnchor
                   href={cert.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h-10 w-10 sm:h-11 sm:w-11 rounded-[12px] bg-nav-bg flex items-center justify-center shrink-0 text-muted transition-all duration-200 hover:bg-btn-secondary-hover hover:text-text active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+                  lift={-3}
+                  className="h-10 w-10 sm:h-11 sm:w-11 rounded-[12px] bg-nav-bg flex items-center justify-center shrink-0 text-muted transition-colors duration-200 hover:bg-btn-secondary-hover hover:text-text hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
                   aria-label={`Buka sertifikat ${cert.title}`}
                 >
                   <svg
@@ -90,7 +94,7 @@ export function Certification({ certifications }: CertificationProps) {
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </a>
+                </HoverLiftAnchor>
               ) : (
                 <div
                   className="h-10 w-10 sm:h-11 sm:w-11 rounded-[12px] bg-nav-bg flex items-center justify-center shrink-0 text-muted/50"
