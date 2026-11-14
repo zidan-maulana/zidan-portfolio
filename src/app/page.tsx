@@ -9,16 +9,36 @@ import { Proficiencies } from "@/components/proficiencies";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import {
-  dummyProfile,
-  dummyProjects,
-  dummyExperiences,
-  dummyEducations,
-  dummyCertifications,
-  dummySkills,
-  dummyTools,
-} from "@/lib/dummy-data";
+  getProfile,
+  getProjects,
+  getExperiences,
+  getEducations,
+  getCertifications,
+  getProficiencies,
+  getTools,
+} from "@/lib/sanity/queries";
 
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const [
+    profile,
+    projects,
+    experiences,
+    educations,
+    certifications,
+    proficiencies,
+    tools,
+  ] = await Promise.all([
+    getProfile(),
+    getProjects(),
+    getExperiences(),
+    getEducations(),
+    getCertifications(),
+    getProficiencies(),
+    getTools(),
+  ]);
+
   return (
     <div className="min-h-screen bg-page text-text flex flex-col items-center justify-start px-3 sm:px-6 pb-16 sm:pb-24">
       {/* Canopy overlay layer (z-40) */}
@@ -31,9 +51,9 @@ export default function HomePage() {
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
         <div className="w-full max-w-[756px] pt-3 sm:pt-4 pointer-events-auto">
           <Header
-            timezone={dummyProfile.timezone}
-            location={dummyProfile.location}
-            socials={dummyProfile.socials}
+            timezone={profile.timezone}
+            location={profile.location}
+            socials={profile.socials}
           />
         </div>
       </div>
@@ -42,36 +62,42 @@ export default function HomePage() {
       <main className="w-full max-w-[756px] flex flex-col gap-3 relative z-10 pt-3 sm:pt-4">
         {/* Module 1: Hero */}
         <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
-          <Hero profile={dummyProfile} />
+          <Hero profile={profile} />
         </div>
 
         {/* Module 2: About & Projects */}
         <div className="w-full rounded-[25px] bg-nav-bg p-[1.5px] flex flex-col gap-[2px]">
-          <Overview profile={dummyProfile} />
-          <Projects projects={dummyProjects} />
+          <Overview profile={profile} />
+          <Projects projects={projects} />
         </div>
 
         {/* Module 3: Experience */}
-        <Experience experiences={dummyExperiences} />
+        {experiences && experiences.length > 0 && (
+          <Experience experiences={experiences} />
+        )}
 
         {/* Module 4: Education */}
-        <Education educations={dummyEducations} />
+        {educations && educations.length > 0 && (
+          <Education educations={educations} />
+        )}
 
         {/* Module 5: Certification */}
-        <Certification certifications={dummyCertifications} />
+        {certifications && certifications.length > 0 && (
+          <Certification certifications={certifications} />
+        )}
 
         {/* Module 6: Proficiencies & Contact */}
         <div className="w-full rounded-[24px] sm:rounded-[25px] bg-nav-bg p-[1.5px] sm:p-[2px] flex flex-col gap-[2px]">
           <Proficiencies
-            skills={dummySkills}
-            tools={dummyTools}
+            skills={proficiencies}
+            tools={tools}
             className="relative w-full overflow-hidden px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-4 sm:pb-5"
           />
-          <Contact profile={dummyProfile} />
+          <Contact profile={profile} />
         </div>
 
         {/* Footer */}
-        <Footer name={dummyProfile.name} />
+        <Footer name={profile.name} />
       </main>
     </div>
   );

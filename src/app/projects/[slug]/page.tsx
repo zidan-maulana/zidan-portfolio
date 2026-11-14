@@ -3,7 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { dummyProfile, dummyProjects } from "@/lib/dummy-data";
+import {
+  getProfile,
+  getProjectBySlug,
+  getProjectSlugs,
+} from "@/lib/sanity/queries";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -11,17 +15,21 @@ interface ProjectPageProps {
   }>;
 }
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
-  return dummyProjects.map((project) => ({
-    slug: project.slug.current,
-  }));
+  const slugs = await getProjectSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = dummyProjects.find((p) => p.slug.current === slug);
+  const [project, profile] = await Promise.all([
+    getProjectBySlug(slug),
+    getProfile(),
+  ]);
 
   if (!project) {
     return {
@@ -30,14 +38,17 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} | ${dummyProfile.name}`,
+    title: `${project.title} | ${profile.name}`,
     description: project.summary,
   };
 }
 
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = dummyProjects.find((p) => p.slug.current === slug);
+  const [project, profile] = await Promise.all([
+    getProjectBySlug(slug),
+    getProfile(),
+  ]);
 
   if (!project) {
     notFound();
@@ -55,9 +66,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
         <div className="w-full max-w-[756px] pt-3 sm:pt-4 pointer-events-auto">
           <Header
-            timezone={dummyProfile.timezone}
-            location={dummyProfile.location}
-            socials={dummyProfile.socials}
+            timezone={profile.timezone}
+            location={profile.location}
+            socials={profile.socials}
           />
         </div>
       </div>
@@ -157,7 +168,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
 
         {/* Footer */}
-        <Footer name={dummyProfile.name} />
+        <Footer name={profile.name} />
       </div>
     </div>
   );
