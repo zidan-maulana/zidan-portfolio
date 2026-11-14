@@ -5,6 +5,7 @@ import { Projects } from "@/components/projects";
 import { Experience } from "@/components/experience";
 import { Education } from "@/components/education";
 import { Certification } from "@/components/certification";
+import { Proficiencies } from "@/components/proficiencies";
 import { Footer } from "@/components/footer";
 import {
   dummyProfile,
@@ -12,6 +13,8 @@ import {
   dummyExperiences,
   dummyEducations,
   dummyCertifications,
+  dummySkills,
+  dummyTools,
 } from "@/lib/dummy-data";
 
 export default function HomePage() {
@@ -79,6 +82,12 @@ export default function HomePage() {
 
         {/* Modul 5: Sasis Abu-abu Menampung Section Certification */}
         <Certification certifications={dummyCertifications} />
+
+        {/* Modul 6: Sasis Abu-abu Menampung Section Proficiencies */}
+        <Proficiencies
+          skills={dummySkills}
+          tools={dummyTools}
+        />
 
         {/* Footer Keterangan Sesuai Gambar 2 */}
         <Footer name={dummyProfile.name} />

@@ -578,4 +578,67 @@ export const dummyCertifications: Certification[] = [
   },
 ];
 
+export interface SkillCard {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface TechToolItem {
+  id: string;
+  name: string;
+  icon: string;
+}
+
+export const dummySkills: SkillCard[] = [
+  {
+    id: "skill-1",
+    number: "01",
+    title: "Retrieval Augmented Generation",
+    description:
+      "Semantic search, context-aware AI systems, and knowledge base pipelines.",
+  },
+  {
+    id: "skill-2",
+    number: "02",
+    title: "UI/UX & Design Systems",
+    description:
+      "Scalable design tokens, accessible components, and intuitive interactions.",
+  },
+  {
+    id: "skill-3",
+    number: "03",
+    title: "Backend & API Integration",
+    description:
+      "Reliable data services, serverless workflows, and seamless integrations.",
+  },
+  {
+    id: "skill-4",
+    number: "04",
+    title: "Performance & Optimization",
+    description:
+      "Speed audits, Core Web Vitals compliance, and asset optimization.",
+  },
+];
+
+export const dummyTools: TechToolItem[] = [
+  { id: "tool-ts", name: "TypeScript", icon: "typescript" },
+  { id: "tool-js", name: "JavaScript", icon: "javascript" },
+  { id: "tool-python", name: "Python", icon: "python" },
+  { id: "tool-react", name: "React", icon: "react" },
+  { id: "tool-nextjs", name: "Next.js", icon: "nextjs" },
+  { id: "tool-tailwind", name: "Tailwind CSS", icon: "tailwind" },
+  { id: "tool-nodejs", name: "Node.js", icon: "nodejs" },
+  { id: "tool-express", name: "Express.js", icon: "express" },
+  { id: "tool-postgresql", name: "PostgreSQL", icon: "postgresql" },
+  { id: "tool-docker", name: "Docker", icon: "docker" },
+  { id: "tool-git", name: "Git", icon: "git" },
+  { id: "tool-figma", name: "Figma", icon: "figma" },
+  { id: "tool-sanity", name: "Sanity", icon: "sanity" },
+];
+
+export const dummyToolsAndTech = dummyTools;
+
+
 
