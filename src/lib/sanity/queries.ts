@@ -16,6 +16,22 @@ import {
   dummyTools,
 } from '@/lib/dummy-data'
 
+const isDev = process.env.NODE_ENV === 'development'
+
+function getFetchOptions(tags: string[]) {
+  if (isDev) {
+    return {
+      cache: 'no-store' as const,
+    }
+  }
+  return {
+    next: {
+      tags,
+      revalidate: 60,
+    },
+  }
+}
+
 export const profileQuery = `*[_type == "profile"][0] {
   name,
   role,
@@ -169,7 +185,7 @@ export async function getProfile(): Promise<Profile> {
     const data = await client.fetch<Profile | null>(
       profileQuery,
       {},
-      { next: { tags: ['profile'] } }
+      getFetchOptions(['profile'])
     )
     if (!data || !data.name) return dummyProfile
     return {
@@ -199,7 +215,7 @@ export async function getProjects(): Promise<Project[]> {
     const data = await client.fetch<Project[]>(
       projectsQuery,
       {},
-      { next: { tags: ['projects'] } }
+      getFetchOptions(['projects'])
     )
     if (!data || data.length === 0) return dummyProjects
     return data.map((p, index) => {
@@ -225,7 +241,7 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     const data = await client.fetch<Project | null>(
       projectBySlugQuery,
       { slug },
-      { next: { tags: [`project:${slug}`, 'projects'] } }
+      getFetchOptions([`project:${slug}`, 'projects'])
     )
     if (!data) {
       return dummyProjects.find((p) => p.slug.current === slug) || null
@@ -251,7 +267,7 @@ export async function getProjectSlugs(): Promise<string[]> {
     const data = await client.fetch<{ slug: string }[]>(
       projectSlugsQuery,
       {},
-      { next: { tags: ['projects'] } }
+      getFetchOptions(['projects'])
     )
     if (!data || data.length === 0) {
       return dummyProjects.map((p) => p.slug.current)
@@ -267,7 +283,7 @@ export async function getExperiences(): Promise<Experience[]> {
     const data = await client.fetch<Experience[]>(
       experiencesQuery,
       {},
-      { next: { tags: ['experience'] } }
+      getFetchOptions(['experience'])
     )
     if (!data || data.length === 0) return dummyExperiences
     return data
@@ -282,7 +298,7 @@ export async function getEducations(): Promise<Education[]> {
     const data = await client.fetch<Education[]>(
       educationsQuery,
       {},
-      { next: { tags: ['education'] } }
+      getFetchOptions(['education'])
     )
     if (!data || data.length === 0) return dummyEducations
     return data
@@ -297,7 +313,7 @@ export async function getCertifications(): Promise<Certification[]> {
     const data = await client.fetch<Certification[]>(
       certificationsQuery,
       {},
-      { next: { tags: ['certification'] } }
+      getFetchOptions(['certification'])
     )
     if (!data || data.length === 0) return dummyCertifications
     return data
@@ -312,7 +328,7 @@ export async function getProficiencies(): Promise<SkillCard[]> {
     const data = await client.fetch<SkillCard[]>(
       proficienciesQuery,
       {},
-      { next: { tags: ['proficiency'] } }
+      getFetchOptions(['proficiency'])
     )
     if (!data || data.length === 0) return dummySkills
     return data
@@ -327,7 +343,7 @@ export async function getTools(): Promise<TechToolItem[]> {
     const data = await client.fetch<TechToolItem[]>(
       toolsQuery,
       {},
-      { next: { tags: ['tool'] } }
+      getFetchOptions(['tool'])
     )
     if (!data || data.length === 0) return dummyTools
     return data
