@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useLenis } from "lenis/react";
+import { motion, AnimatePresence } from "motion/react";
 import { LiveClock } from "@/components/live-clock";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -27,6 +28,7 @@ export function Header({
 }: HeaderProps) {
   const router = useRouter();
   const lenis = useLenis();
+  const headerRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const closeMenu = () => setMobileMenuOpen(false);
@@ -42,6 +44,25 @@ export function Header({
       window.addEventListener("keydown", handleKeyDown);
     }
     return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  // Menutup menu jika klik di luar area header
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
   }, [mobileMenuOpen]);
 
   // Handler navigasi anchor dengan Lenis smooth scroll
@@ -108,6 +129,17 @@ export function Header({
         </svg>
       );
     }
+    if (l.includes("x") || l.includes("twitter")) {
+      return (
+        <svg
+          className="h-3.5 w-3.5 fill-current"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      );
+    }
     return (
       <svg
         className="h-3.5 w-3.5"
@@ -121,146 +153,196 @@ export function Header({
   };
 
   return (
-    <nav
-      className="flex h-[56px] sm:h-[60px] w-full items-center justify-between px-5 sm:px-6 rounded-[24px] bg-nav-bg/80 backdrop-blur-md transition-colors duration-200"
-      aria-label="Navigasi Utama"
-    >
-      {/* Left items: theme toggle and digital clock */}
-      <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 whitespace-nowrap">
-        <ThemeToggle />
-        <LiveClock timezone={timezone} location={location} />
-      </div>
-
-      {/* Center navigation */}
-      <div
-        className="hidden md:flex items-center gap-[10px] shrink-0"
-        role="menubar"
-      >
-        {navItems.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            onClick={(e) => handleNavClick(e, item.href)}
-            role="menuitem"
-            className="group relative inline-block rounded-md px-1 py-0.5 text-[13.5px] font-medium text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
-          >
-            <span className="relative block overflow-hidden leading-tight">
-              <span className="block transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-full motion-reduce:transition-none">
-                {item.label}
-              </span>
-              <span
-                className="absolute inset-0 block translate-y-full text-muted transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 motion-reduce:transition-none"
-                aria-hidden="true"
-              >
-                {item.label}
-              </span>
-            </span>
-          </a>
-        ))}
-      </div>
-
-      {/* Right items: social links */}
-      <div className="hidden sm:flex items-center gap-2 shrink-0">
-        {socials.map((social) => (
-          <a
-            key={social.label}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
-            aria-label={`Buka profil ${social.label}`}
-            title={social.label}
-          >
-            {renderSocialIcon(social.label)}
-          </a>
-        ))}
-      </div>
-
-      {/* Mobile hamburger button */}
-      <div className="flex sm:hidden items-center gap-2 shrink-0">
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
-          aria-expanded={mobileMenuOpen}
-          aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
-        >
-          {mobileMenuOpen ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="4" x2="20" y1="12" y2="12" />
-              <line x1="4" x2="20" y1="6" y2="6" />
-              <line x1="4" x2="20" y1="18" y2="18" />
-            </svg>
-          )}
-        </button>
-      </div>
-
-      {/* Mobile dropdown menu */}
+    <header ref={headerRef} className="relative w-full">
+      {/* Background backdrop click handler for mobile overlay */}
       {mobileMenuOpen && (
         <div
-          className="absolute left-2 right-2 top-[64px] z-50 rounded-[18px] border border-border/80 bg-surface p-4 shadow-lg sm:hidden"
-          role="menu"
-        >
-          <div className="flex flex-col gap-2">
+          onClick={closeMenu}
+          className="fixed inset-0 z-[-1] pointer-events-auto sm:hidden"
+          aria-hidden="true"
+        />
+      )}
+
+      <nav
+        className={`w-full rounded-[24px] bg-nav-bg/85 dark:bg-nav-bg/90 backdrop-blur-md border ${
+          mobileMenuOpen
+            ? "border-border/70 dark:border-border/40 shadow-lg"
+            : "border-border/40 dark:border-border/20"
+        } transition-all duration-200 overflow-hidden`}
+        aria-label="Navigasi Utama"
+      >
+        {/* Top bar row */}
+        <div className="flex h-[56px] sm:h-[60px] w-full items-center justify-between px-5 sm:px-6">
+          {/* Left items: theme toggle and digital clock */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 whitespace-nowrap">
+            <ThemeToggle />
+            <LiveClock timezone={timezone} location={location} />
+          </div>
+
+          {/* Center navigation */}
+          <div
+            className="hidden md:flex items-center gap-[10px] shrink-0"
+            role="menubar"
+          >
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 role="menuitem"
-                className="flex h-10 items-center rounded-lg px-3 text-[14px] font-medium text-text transition-colors hover:bg-nav-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
+                className="group relative inline-block rounded-md px-1 py-0.5 text-[13.5px] font-medium text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text cursor-pointer"
               >
-                {item.label}
+                <span className="relative block overflow-hidden leading-tight">
+                  <span className="block transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-full motion-reduce:transition-none">
+                    {item.label}
+                  </span>
+                  <span
+                    className="absolute inset-0 block translate-y-full text-muted transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 motion-reduce:transition-none"
+                    aria-hidden="true"
+                  >
+                    {item.label}
+                  </span>
+                </span>
               </a>
             ))}
           </div>
 
-          {socials.length > 0 && (
-            <div className="mt-3 pt-3 border-t border-border flex items-center gap-2">
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
-                  aria-label={`Buka profil ${social.label}`}
-                  title={social.label}
+          {/* Right items: social links */}
+          <div className="hidden sm:flex items-center gap-2 shrink-0">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text shrink-0"
+                aria-label={`Buka profil ${social.label}`}
+                title={social.label}
+              >
+                {renderSocialIcon(social.label)}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile hamburger / close button without button shape */}
+          <div className="flex sm:hidden items-center gap-1 shrink-0">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="inline-flex p-1.5 cursor-pointer items-center justify-center text-text hover:text-muted transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+              aria-expanded={mobileMenuOpen}
+              aria-label={mobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+            >
+              {mobileMenuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19"
+                  height="19"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
                 >
-                  {renderSocialIcon(social.label)}
-                </a>
-              ))}
-            </div>
-          )}
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19"
+                  height="19"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="4" x2="20" y1="6" y2="6" />
+                  <line x1="4" x2="20" y1="12" y2="12" />
+                  <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
-      )}
-    </nav>
+
+        {/* Mobile dropdown shape */}
+        <AnimatePresence initial={false}>
+          {mobileMenuOpen && (
+            <motion.div
+              key="mobile-dropdown"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{
+                height: "auto",
+                opacity: 1,
+                transition: {
+                  height: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                  opacity: { duration: 0.25, delay: 0.05 },
+                },
+              }}
+              exit={{
+                height: 0,
+                opacity: 0,
+                transition: {
+                  height: { duration: 0.25, ease: [0.16, 1, 0.3, 1] },
+                  opacity: { duration: 0.15 },
+                },
+              }}
+              className="overflow-hidden sm:hidden"
+            >
+              <div className="flex flex-col items-center px-5 pt-6 pb-7">
+                {/* Centered navigation items */}
+                <motion.div
+                  initial={{ opacity: 0, y: -6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25, delay: 0.08 }}
+                  className="flex flex-col items-center gap-4 text-center"
+                >
+                  {navItems.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className="font-display text-[18px] font-medium text-text hover:text-muted transition-colors py-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text rounded-md"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </motion.div>
+
+                {/* Centered social links at bottom */}
+                {socials.length > 0 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25, delay: 0.12 }}
+                    className="mt-8 flex items-center justify-center gap-2.5"
+                  >
+                    {socials.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-[38px] w-[38px] cursor-pointer items-center justify-center rounded-[12px] border border-btn-secondary-border bg-surface text-text shadow-btn-icon transition-all duration-200 ease hover:bg-btn-secondary-hover hover:shadow-btn-icon-hover active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
+                        aria-label={`Buka profil ${social.label}`}
+                        title={social.label}
+                      >
+                        {renderSocialIcon(social.label)}
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </header>
   );
 }
