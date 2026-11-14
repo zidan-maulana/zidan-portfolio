@@ -14,7 +14,7 @@ export function Experience({ experiences }: ExperienceProps) {
     <section
       id="experience"
       aria-label="Pengalaman Kerja"
-      className="relative overflow-hidden rounded-[24px] bg-surface p-6 sm:p-8 md:p-[36px]"
+      className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 py-6 sm:py-8 md:py-[44px]"
     >
       {/* Header Section Sesuai Konsistensi Website (Gambar 1) */}
       <div className="flex flex-col">
@@ -27,7 +27,7 @@ export function Experience({ experiences }: ExperienceProps) {
       </div>
 
       {/* Daftar Kartu Pengalaman Sesuai Komposisi Referensi (Gambar 2) */}
-      <div className="mt-6 sm:mt-7 flex flex-col gap-3.5 sm:gap-4">
+      <div className="mt-6 sm:mt-8 flex flex-col gap-3.5 sm:gap-4">
         {experiences.map((exp) => (
           <div
             key={exp.id}
