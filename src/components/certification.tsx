@@ -20,12 +20,12 @@ function CertificationCard({ cert }: { cert: CertificationType }) {
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex flex-col min-w-0 flex-1">
-          {/* Judul Sertifikasi */}
+          {/* Certification title */}
           <h3 className="font-display text-[17px] sm:text-[18px] font-medium text-text leading-snug">
             {cert.title}
           </h3>
 
-          {/* Tanggal & Penerbit Sertifikasi */}
+          {/* Date and issuer */}
           <div className="mt-2 sm:mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12.5px] sm:text-[13px] text-muted">
             <div className="inline-flex items-center gap-1.5">
               <svg
@@ -55,7 +55,7 @@ function CertificationCard({ cert }: { cert: CertificationType }) {
           </div>
         </div>
 
-        {/* Tombol Aksi: Memanjang ke Kiri saat Di-hover Menggunakan Framer Motion Sesuai Referensi */}
+        {/* Action button */}
         {cert.url ? (
           <motion.a
             href={cert.url}
@@ -103,7 +103,7 @@ export function Certification({ certifications }: CertificationProps) {
       aria-label="Sertifikasi"
       className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
     >
-      {/* Header Section Sesuai Konsistensi Website */}
+      {/* Section header */}
       <div className="flex flex-col">
         <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Certification
@@ -113,7 +113,7 @@ export function Certification({ certifications }: CertificationProps) {
         </p>
       </div>
 
-      {/* Daftar Kartu Sertifikasi Sesuai Komposisi Referensi */}
+      {/* Certification cards */}
       <div className="mt-6 sm:mt-8 flex flex-col gap-3.5 sm:gap-4">
         {certifications.map((cert) => (
           <CertificationCard key={cert.id} cert={cert} />

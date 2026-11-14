@@ -45,19 +45,13 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   return (
     <div className="min-h-screen bg-page text-text flex flex-col items-center justify-start px-3 sm:px-6 pb-12">
-      {/*
-        Lapisan Penutup Atas (Canopy) - z-40:
-        Menutup area di atas navbar dan ruang di luar sudut lengkungan atas
-      */}
+      {/* Canopy overlay layer (z-40) */}
       <div
         className="fixed -top-[100px] left-0 right-0 h-[140px] sm:h-[144px] bg-page z-40 pointer-events-none"
         aria-hidden="true"
       />
 
-      {/*
-        Fixed Navbar Layer - z-50:
-        Navbar kapsul konsisten dengan glassmorphism dan rounded-[24px]
-      */}
+      {/* Floating navigation header (z-50) */}
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none">
         <div className="w-full max-w-[756px] pt-3 sm:pt-4 pointer-events-auto">
           <Header
@@ -68,15 +62,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         </div>
       </div>
 
-      {/*
-        Konten Utama yang Mengalir (z-10):
-        Mengikuti sistem Latar Penghubung yang identik dengan HomePage dan ProjectsPage
-      */}
+      {/* Main page content (z-10) */}
       <div className="w-full max-w-[756px] flex flex-col items-center relative z-10 pt-3 sm:pt-4">
-        {/* Sasis Abu-abu Menampung Card Detail Proyek */}
         <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
           <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-5 sm:px-7 md:px-[32px] py-8 sm:py-10 md:py-[50px]">
-            {/* Metadata Kategori dan Periode Waktu */}
+            {/* Category and timeline */}
             <div className="text-[13px] sm:text-[14px] font-normal text-muted">
               {project.category}
               {project.timeline
@@ -86,17 +76,17 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 : ""}
             </div>
 
-            {/* Judul Utama Proyek (26px) */}
+            {/* Project title */}
             <h1 className="mt-2 font-display text-[26px] font-medium tracking-[-0.015em] text-text leading-tight">
               {project.title}
             </h1>
 
-            {/* Ringkasan / Deskripsi Proyek (14px) */}
+            {/* Project summary */}
             <p className="mt-2.5 max-w-[620px] text-[14px] font-normal text-muted leading-relaxed">
               {project.summary}
             </p>
 
-            {/* Tombol Preview Project */}
+            {/* Project preview button */}
             {project.liveUrl && (
               <div className="mt-5 sm:mt-6">
                 <a
@@ -110,7 +100,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             )}
 
-            {/* Gambar Cover Utama */}
+            {/* Cover image */}
             <div className="mt-7 sm:mt-8 relative aspect-[16/10] w-full overflow-hidden rounded-[14px] sm:rounded-[16px] bg-nav-bg border border-border/70">
               <Image
                 src={project.cover.asset.url}
@@ -122,7 +112,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               />
             </div>
 
-            {/* Bagian Tahapan Proyek (Ideation & Conceptual, Production & Execution) */}
+            {/* Case study stages */}
             {project.sections && project.sections.length > 0 && (
               <div className="mt-8 sm:mt-10 flex flex-col gap-8 sm:gap-10">
                 {project.sections.map((section, idx) => (
@@ -140,7 +130,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       {section.description}
                     </p>
 
-                    {/* Galeri Gambar 2 Kolom untuk Tahapan Ideation */}
+                    {/* Image gallery */}
                     {section.images && section.images.length > 0 && (
                       <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                         {section.images.map((img, imgIdx) => (
@@ -166,7 +156,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </main>
         </div>
 
-        {/* Footer Sesuai Gambar Referensi */}
+        {/* Footer */}
         <Footer name={dummyProfile.name} />
       </div>
     </div>

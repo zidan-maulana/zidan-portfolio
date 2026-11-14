@@ -30,18 +30,18 @@ function ContactRow({ item }: { item: ContactItem }) {
       className="group flex items-center justify-between gap-3 sm:gap-4 rounded-[16px] sm:rounded-[18px] border border-border/70 dark:border-border/40 bg-surface px-4 py-3 sm:px-5 sm:py-3.5 transition-all duration-200 hover:border-text/30 hover:bg-nav-bg/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
       aria-label={`${item.label}: ${item.value}`}
     >
-      {/* Label di Sisi Kiri */}
+      {/* Left label */}
       <span className="text-[14px] sm:text-[15px] font-normal text-muted group-hover:text-text transition-colors shrink-0">
         {item.label}
       </span>
 
-      {/* Nilai / Handle dan Tombol Panah di Sisi Kanan */}
+      {/* Right value and arrow button */}
       <div className="flex items-center gap-3 sm:gap-4 min-w-0">
         <span className="text-[13.5px] sm:text-[15px] font-medium text-text truncate">
           {item.value}
         </span>
 
-        {/* Tombol Aksi: Memanjang Halus ke Kiri saat Baris di-hover */}
+        {/* Action arrow button */}
         <motion.div
           initial={false}
           animate={{
@@ -116,7 +116,7 @@ export function Contact({ profile }: ContactProps) {
       aria-label="Kontak dan Informasi Terhubung"
       className="relative w-full overflow-hidden rounded-[22px] sm:rounded-[23px] bg-surface px-4 sm:px-6 md:px-7 py-5 sm:py-6 md:py-7 scroll-mt-24"
     >
-      {/* Header Section Kontak Sesuai Style Kita */}
+      {/* Section header */}
       <div className="flex flex-col mb-5 sm:mb-6">
         <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Contact
@@ -126,7 +126,7 @@ export function Contact({ profile }: ContactProps) {
         </p>
       </div>
 
-      {/* Daftar Baris Kontak Mengikuti Referensi Gambar 2 */}
+      {/* Contact rows */}
       <div className="flex flex-col gap-2.5 sm:gap-3">
         {contactItems.map((item) => (
           <ContactRow key={item.id} item={item} />

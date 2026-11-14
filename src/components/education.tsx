@@ -15,7 +15,7 @@ export function Education({ educations }: EducationProps) {
       aria-label="Pendidikan"
       className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
     >
-      {/* Header Section Sesuai Konsistensi Website (Gambar 1) */}
+      {/* Section header */}
       <div className="flex flex-col">
         <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Education
@@ -25,7 +25,7 @@ export function Education({ educations }: EducationProps) {
         </p>
       </div>
 
-      {/* Daftar Kartu Pendidikan Sesuai Komposisi Referensi (Tanpa Stroke, Teks Rata Kiri) */}
+      {/* Education cards */}
       <div className="mt-6 sm:mt-8 flex flex-col gap-3.5 sm:gap-4">
         {educations.map((edu) => (
           <div
@@ -33,22 +33,19 @@ export function Education({ educations }: EducationProps) {
             className="rounded-[18px] bg-surface p-5 sm:p-6 transition-colors duration-200"
           >
             <div className="flex flex-col">
-              {/* Nama Institusi Pendidikan */}
               <span className="text-[13px] sm:text-[13.5px] font-normal text-muted leading-tight">
                 {edu.institution}
               </span>
 
-              {/* Gelar / Program Studi */}
               <h3 className="font-display text-[17px] sm:text-[18px] font-medium text-text leading-snug mt-1">
                 {edu.degree}
               </h3>
 
-              {/* Deskripsi Fokus Pembelajaran */}
               <p className="mt-3.5 sm:mt-4 text-[13.5px] sm:text-[14px] font-normal text-muted leading-relaxed">
                 {edu.description}
               </p>
 
-              {/* Baris Metadata: Periode dan Lokasi */}
+              {/* Metadata: period and location */}
               <div className="mt-4 sm:mt-4.5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12.5px] sm:text-[13px] text-muted">
                 <div className="inline-flex items-center gap-1.5">
                   <svg

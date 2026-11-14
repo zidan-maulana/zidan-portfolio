@@ -25,7 +25,7 @@ export function Proficiencies({
         "relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
       }
     >
-      {/* Header Utama Section Sesuai Konsistensi Website */}
+      {/* Section header */}
       <div className="flex flex-col">
         <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Proficiencies
@@ -35,19 +35,17 @@ export function Proficiencies({
         </p>
       </div>
 
-      {/* Grid 2x2 Kartu Skills */}
+      {/* Skills grid */}
       <div className="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 gap-[3px]">
         {skills.map((skill) => (
           <div
             key={skill.id}
             className="flex flex-col justify-between rounded-[18px] sm:rounded-[20px] bg-surface p-5 sm:p-6 md:p-7 min-h-[170px] sm:min-h-[185px] md:min-h-[195px] transition-colors duration-200"
           >
-            {/* Angka Numerik dengan Sedikit Jarak Bawah */}
             <span className="font-display text-[30px] font-light text-muted-light/35 dark:text-muted/25 leading-none select-none mb-8 sm:mb-9 md:mb-10">
               {skill.number}
             </span>
 
-            {/* Headline Maksimal 1 Baris dan Subline Ringkas Maksimal 2 Baris */}
             <div className="mt-auto">
               <h3 className="font-display text-[16px] sm:text-[17.5px] font-medium text-text leading-snug line-clamp-1">
                 {skill.title}
@@ -60,16 +58,16 @@ export function Proficiencies({
         ))}
       </div>
 
-      {/* 1 Baris Logo Marquee: Monokrom secara default, Berwarna saat di-hover */}
+      {/* Tools marquee */}
       {tools && tools.length > 0 && (
         <div className="mt-2.5 sm:mt-3 overflow-hidden relative py-1">
-          {/* Gradient Fade Mask Kiri dan Kanan pada Latar Sasis */}
+          {/* Gradient fade masks */}
           <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-16 bg-gradient-to-r from-nav-bg to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-16 bg-gradient-to-l from-nav-bg to-transparent z-10" />
 
-          {/* Marquee Track 1 Baris */}
+          {/* Marquee track */}
           <div className="flex w-max marquee-track hover:[animation-play-state:paused]">
-            {/* Set 1 */}
+            {/* Track set 1 */}
             <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 pr-2 sm:pr-2.5">
               {tools.map((item) => (
                 <div
@@ -89,7 +87,7 @@ export function Proficiencies({
               ))}
             </div>
 
-            {/* Set 2 (Duplikasi untuk Seamless Loop) */}
+            {/* Track set 2 (duplicate for loop) */}
             <div
               className="flex items-center gap-2 sm:gap-2.5 shrink-0 pr-2 sm:pr-2.5"
               aria-hidden="true"

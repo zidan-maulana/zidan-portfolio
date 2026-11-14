@@ -16,12 +16,12 @@ export function Overview({ profile }: OverviewProps) {
       aria-label="Tentang Saya"
       className="relative overflow-hidden rounded-[24px] bg-surface p-6 sm:p-8 md:p-[44px]"
     >
-      {/* Label Section Sesuai Referensi Portfolik */}
+      {/* Section label */}
       <div className="font-display text-[16px] font-medium text-muted">
         About my self.
       </div>
 
-      {/* Paragraf Utama dengan Jarak Tepat 16px dari Judul */}
+      {/* Main bio paragraph */}
       <div className="mt-4">
         <BlurReveal
           text={bioText}
@@ -29,7 +29,7 @@ export function Overview({ profile }: OverviewProps) {
         />
       </div>
 
-      {/* Baris Informasi Kontak: Email, Telepon, dan Unduh CV */}
+      {/* Contact information links */}
       <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-y-2.5 gap-x-3.5 text-[13.5px] sm:text-[14px] text-muted">
         <a
           href={profile.email ? `mailto:${profile.email}` : "mailto:zidan@example.com"}

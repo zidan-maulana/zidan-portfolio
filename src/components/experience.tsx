@@ -16,7 +16,7 @@ export function Experience({ experiences }: ExperienceProps) {
       aria-label="Pengalaman Kerja"
       className="relative w-full overflow-hidden rounded-[24px] sm:rounded-[25px] bg-nav-bg px-4 sm:px-6 md:px-7 pt-5 sm:pt-6 md:pt-7 pb-5 sm:pb-6 md:pb-7"
     >
-      {/* Header Section Sesuai Konsistensi Website (Gambar 1) */}
+      {/* Section header */}
       <div className="flex flex-col">
         <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Experience
@@ -26,7 +26,7 @@ export function Experience({ experiences }: ExperienceProps) {
         </p>
       </div>
 
-      {/* Daftar Kartu Pengalaman Sesuai Komposisi Referensi Terbaru (Tanpa Stroke, Teks Rata Kiri) */}
+      {/* Experience cards */}
       <div className="mt-6 sm:mt-8 flex flex-col gap-3.5 sm:gap-4">
         {experiences.map((exp) => (
           <div
@@ -34,7 +34,7 @@ export function Experience({ experiences }: ExperienceProps) {
             className="rounded-[18px] bg-surface p-5 sm:p-6 transition-colors duration-200"
           >
             <div className="flex items-start gap-4 sm:gap-5">
-              {/* Kolom Kiri: Logo Organisasi (Tanpa Stroke) */}
+              {/* Organization logo */}
               <div className="relative h-11 w-11 sm:h-12 sm:w-12 shrink-0 overflow-hidden rounded-[12px] sm:rounded-[14px]">
                 <Image
                   src={exp.logo.asset.url}
@@ -46,24 +46,21 @@ export function Experience({ experiences }: ExperienceProps) {
                 />
               </div>
 
-              {/* Kolom Kanan: Semua Teks Rata Kiri Konsisten Sesuai Referensi */}
+              {/* Content */}
               <div className="flex flex-col flex-1 min-w-0">
-                {/* Nama Perusahaan / Organisasi */}
                 <span className="text-[13px] sm:text-[13.5px] font-normal text-muted leading-tight">
                   {exp.organization}
                 </span>
 
-                {/* Jabatan / Role */}
                 <h3 className="font-display text-[17px] sm:text-[18px] font-medium text-text leading-snug mt-1">
                   {exp.role}
                 </h3>
 
-                {/* Deskripsi Tanggung Jawab dan Kontribusi */}
                 <p className="mt-3.5 sm:mt-4 text-[13.5px] sm:text-[14px] font-normal text-muted leading-relaxed">
                   {exp.description}
                 </p>
 
-                {/* Baris Metadata: Periode dan Lokasi */}
+                {/* Metadata: period and location */}
                 <div className="mt-4 sm:mt-4.5 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12.5px] sm:text-[13px] text-muted">
                   <div className="inline-flex items-center gap-1.5">
                     <svg

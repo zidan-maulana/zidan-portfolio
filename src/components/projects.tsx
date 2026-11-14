@@ -17,7 +17,7 @@ export function Projects({ projects }: ProjectsProps) {
       aria-label="Studi Kasus dan Proyek"
       className="relative px-4 sm:px-6 md:px-7 py-6 sm:py-8 md:py-[44px]"
     >
-      {/* Judul dan Subtitle Section Proyek */}
+      {/* Section header */}
       <div className="flex flex-col">
         <h2 className="font-display text-[20px] font-medium tracking-[-0.01em] text-text">
           Case Studies &amp; Projects
@@ -27,14 +27,14 @@ export function Projects({ projects }: ProjectsProps) {
         </p>
       </div>
 
-      {/* Grid 2 Kolom Kartu Proyek (Maksimal 4 Proyek) */}
+      {/* Projects grid */}
       <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-5 sm:gap-y-7">
         {displayedProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
 
-      {/* Tombol Aksi di Bagian Bawah: See my Projects Sesuai Screenshot Referensi */}
+      {/* Action button */}
       <div className="mt-8 sm:mt-10 flex justify-center">
         <HoverLift>
           <Link

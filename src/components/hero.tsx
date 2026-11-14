@@ -15,7 +15,7 @@ export function Hero({ profile }: HeroProps) {
       aria-label="Profil dan Pengantar"
       className="relative z-10 overflow-hidden rounded-[24px] bg-surface p-6 sm:p-8 md:p-[44px] scroll-mt-28"
     >
-      {/* Dekorasi Grid Minimalis Samar di Pojok Kanan Bawah */}
+      {/* Background decorative grid */}
       <div
         className="pointer-events-none absolute -bottom-[35px] right-2 z-0 select-none overflow-hidden sm:right-3"
         aria-hidden="true"
@@ -23,9 +23,9 @@ export function Hero({ profile }: HeroProps) {
         <HeroGrid className="h-[315px] w-[260px] opacity-60 sm:h-[420px] sm:w-[347px] sm:opacity-100" />
       </div>
 
-      {/* Konten Utama Hero (Rata Kiri, Mengikuti Garis Vertikal yang Sama) */}
+      {/* Main hero content */}
       <div className="relative z-10 flex flex-col items-start text-left">
-        {/* Identitas Profil: Avatar Bulat 90x90px dan Nama/Jabatan */}
+        {/* Profile info: avatar and rolling title */}
         <div className="flex items-center gap-4 sm:gap-4.5">
           <div className="relative h-[90px] w-[90px] shrink-0 overflow-hidden rounded-full border border-border/80 shadow-xs">
             <Image
@@ -57,7 +57,7 @@ export function Hero({ profile }: HeroProps) {
           </div>
         </div>
 
-        {/* Headline H1: Inter Display 28px dengan pemenggalan 2 baris seimbang */}
+        {/* Headline */}
         <div className="mt-6 sm:mt-7">
           <h1 className="max-w-[580px] font-display text-[28px] font-normal tracking-[-0.015em] leading-[36px] sm:leading-[37px] text-text">
             {profile.headline.includes("digital experiences") ? (
@@ -71,7 +71,7 @@ export function Hero({ profile }: HeroProps) {
           </h1>
         </div>
 
-        {/* Deskripsi Singkat Bio: Font size 16px dengan jarak lebih rapat dari head */}
+        {/* Short bio */}
         <div className="mt-2.5 sm:mt-3">
           <p className="max-w-[620px] text-[16px] font-normal leading-[25px] sm:leading-[26px] text-muted">
             {profile.shortBio.includes("solutions") ? (
@@ -85,7 +85,7 @@ export function Hero({ profile }: HeroProps) {
           </p>
         </div>
 
-        {/* Tombol Aksi Sesuai PRD: Get in Touch dan Download CV dengan Effect Hover Lift */}
+        {/* Action buttons */}
         <div className="mt-6 sm:mt-7 flex flex-row items-center gap-3">
           <HoverLiftLink
             href={profile.email ? `mailto:${profile.email}` : "mailto:zidan@example.com"}

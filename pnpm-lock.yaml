@@ -169,9 +169,6 @@ importers:
       '@phosphor-icons/react':
         specifier: ^2.1.10
         version: 2.1.10(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      framer-motion:
-        specifier: ^14.13.0
-        version: 14.13.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       lenis:
         specifier: ^1.3.27
         version: 1.3.27(react@19.3.1)
@@ -203,9 +200,6 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.3.0(@types/react@19.3.0)
-      devicon:
-        specifier: ^2.18.0
-        version: 2.18.0
       eslint:
         specifier: ^9
         version: 9.39.5(jiti@2.7.0)(supports-color@7.2.0)
@@ -1104,9 +1098,6 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
-
-  devicon@2.18.0:
-    resolution: {integrity: sha512-jmLZPdTfO9d0GlnTX8Qw2SxZj71My6WAVEZtgmWErVju/uSUqmk2hxKzXo9Pw7IfqV9PEwcOKrywZA1etryRPA==}
 
   doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
@@ -3044,8 +3035,6 @@ snapshots:
       object-keys: 1.1.1
 
   detect-libc@2.1.2: {}
-
-  devicon@2.18.0: {}
 
   doctrine@2.1.0:
     dependencies:

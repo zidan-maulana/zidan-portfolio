@@ -13,7 +13,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="group block rounded-[16px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
       aria-label={`Lihat studi kasus proyek ${project.title}`}
     >
-      {/* Wadah Gambar Cover dengan Rasio 16:10 dan Efek Skala 1.03 Saat Hover */}
+      {/* Project cover image */}
       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[14px] bg-nav-bg border border-border/70">
         <Image
           src={project.cover.asset.url}
@@ -25,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         />
       </div>
 
-      {/* Teks Informasi Proyek: Kategori dan Judul */}
+      {/* Project metadata and title */}
       <div className="mt-3 flex flex-col gap-0.5">
         <span className="text-[14px] font-normal text-muted">
           {project.category}

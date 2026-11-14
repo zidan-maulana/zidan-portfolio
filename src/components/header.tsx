@@ -125,13 +125,13 @@ export function Header({
       className="flex h-[56px] sm:h-[60px] w-full items-center justify-between px-5 sm:px-6 rounded-[24px] bg-nav-bg/80 backdrop-blur-md transition-colors duration-200"
       aria-label="Navigasi Utama"
     >
-      {/* Kelompok Kiri: Tombol Tema (Tanpa Shape) dan Jam Digital */}
+      {/* Left items: theme toggle and digital clock */}
       <div className="flex items-center gap-2 sm:gap-2.5 shrink-0 whitespace-nowrap">
         <ThemeToggle />
         <LiveClock timezone={timezone} location={location} />
       </div>
 
-      {/* Kelompok Tengah: Menu Desktop */}
+      {/* Center navigation */}
       <div
         className="hidden md:flex items-center gap-[10px] shrink-0"
         role="menubar"
@@ -159,7 +159,7 @@ export function Header({
         ))}
       </div>
 
-      {/* Kelompok Kanan: Tombol Sosial Media */}
+      {/* Right items: social links */}
       <div className="hidden sm:flex items-center gap-2 shrink-0">
         {socials.map((social) => (
           <a
@@ -176,7 +176,7 @@ export function Header({
         ))}
       </div>
 
-      {/* Menu Tombol Hamburger untuk Layar Mobile */}
+      {/* Mobile hamburger button */}
       <div className="flex sm:hidden items-center gap-2 shrink-0">
         <button
           type="button"
@@ -222,7 +222,7 @@ export function Header({
         </button>
       </div>
 
-      {/* Dropdown Menu Mobile */}
+      {/* Mobile dropdown menu */}
       {mobileMenuOpen && (
         <div
           className="absolute left-2 right-2 top-[64px] z-50 rounded-[18px] border border-border/80 bg-surface p-4 shadow-lg sm:hidden"
