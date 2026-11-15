@@ -15,7 +15,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
         lerp: 0.1,
         duration: 1.2,
         smoothWheel: true,
-        syncTouch: true,
+        syncTouch: false,
       }}
     >
       {children}
