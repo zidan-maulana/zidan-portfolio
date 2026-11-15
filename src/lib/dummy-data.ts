@@ -515,6 +515,12 @@ export interface Certification {
   issuer: string;
   date: string;
   url?: string;
+  image?: {
+    asset: {
+      url: string;
+    };
+    alt?: string;
+  };
 }
 
 export const dummyCertifications: Certification[] = [

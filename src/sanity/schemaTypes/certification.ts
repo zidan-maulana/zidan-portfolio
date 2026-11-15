@@ -29,6 +29,23 @@ export const certification = defineType({
       type: 'url',
     }),
     defineField({
+      name: 'image',
+      title: 'Foto / Gambar Sertifikat',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text (Deskripsi Gambar)',
+          type: 'string',
+          initialValue: 'Dokumen Sertifikat',
+        }),
+      ],
+      description: 'Unggah foto sertifikat untuk ditampilkan dalam modal saat kartu diklik',
+    }),
+    defineField({
       name: 'order',
       title: 'Urutan Tampilan',
       type: 'number',

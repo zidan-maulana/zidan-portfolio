@@ -162,7 +162,13 @@ export const certificationsQuery = `*[_type == "certification"] | order(order as
   title,
   issuer,
   date,
-  url
+  url,
+  image {
+    asset-> {
+      url
+    },
+    alt
+  }
 }`
 
 export const proficienciesQuery = `*[_type == "proficiency"] | order(order asc, number asc) {
