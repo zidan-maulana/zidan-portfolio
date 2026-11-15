@@ -1,4 +1,4 @@
-# Zidan Maulana - Personal Portfolio
+# Personal Portfolio
 
 A minimalist personal portfolio and case studies website built with Next.js (App Router), TypeScript, Tailwind CSS, and Sanity CMS.
 
