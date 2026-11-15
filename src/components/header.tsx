@@ -164,11 +164,7 @@ export function Header({
       )}
 
       <nav
-        className={`w-full rounded-[24px] bg-nav-bg/85 dark:bg-nav-bg/90 backdrop-blur-md border ${
-          mobileMenuOpen
-            ? "border-border/70 dark:border-border/40"
-            : "border-border/40 dark:border-border/20"
-        } transition-colors duration-300 overflow-hidden`}
+        className="w-full rounded-[24px] bg-nav-bg/85 dark:bg-nav-bg/90 backdrop-blur-md transition-colors duration-300 overflow-hidden"
         aria-label="Navigasi Utama"
       >
         {/* Top bar row */}
