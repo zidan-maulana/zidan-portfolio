@@ -163,12 +163,32 @@ export const certificationsQuery = `*[_type == "certification"] | order(order as
   issuer,
   date,
   url,
+  description,
   image {
     asset-> {
       url
     },
     alt
   }
+}`
+
+export const certificationByIdQuery = `*[_type == "certification" && _id == $id][0] {
+  "id": _id,
+  title,
+  issuer,
+  date,
+  url,
+  description,
+  image {
+    asset-> {
+      url
+    },
+    alt
+  }
+}`
+
+export const certificationIdsQuery = `*[_type == "certification"] {
+  "id": _id
 }`
 
 export const proficienciesQuery = `*[_type == "proficiency"] | order(order asc, number asc) {
@@ -326,6 +346,40 @@ export async function getCertifications(): Promise<Certification[]> {
   } catch (error) {
     console.warn('Failed to fetch certifications from Sanity, using fallback:', error)
     return dummyCertifications
+  }
+}
+
+export async function getCertificationById(id: string): Promise<Certification | null> {
+  try {
+    const data = await client.fetch<Certification | null>(
+      certificationByIdQuery,
+      { id },
+      getFetchOptions([`certification:${id}`, 'certification'])
+    )
+    if (!data) {
+      return dummyCertifications.find((c) => c.id === id) || null
+    }
+    return data
+  } catch (error) {
+    console.warn(`Failed to fetch certification ${id} from Sanity, using fallback:`, error)
+    return dummyCertifications.find((c) => c.id === id) || null
+  }
+}
+
+export async function getCertificationIds(): Promise<string[]> {
+  try {
+    const data = await client.fetch<{ id: string }[]>(
+      certificationIdsQuery,
+      {},
+      getFetchOptions(['certification'])
+    )
+    if (!data || data.length === 0) {
+      return dummyCertifications.map((c) => c.id)
+    }
+    return data.map((c) => c.id)
+  } catch (error) {
+    console.warn('Failed to fetch certification ids from Sanity, using fallback:', error)
+    return dummyCertifications.map((c) => c.id)
   }
 }
 

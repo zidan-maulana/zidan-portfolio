@@ -515,6 +515,7 @@ export interface Certification {
   issuer: string;
   date: string;
   url?: string;
+  description?: string;
   image?: {
     asset: {
       url: string;
@@ -530,6 +531,7 @@ export const dummyCertifications: Certification[] = [
     issuer: "Meta",
     date: "April 2024",
     url: "https://coursera.org",
+    description: "Comprehensive multi-course specialization covering modern React architecture, JavaScript engineering, UI/UX accessibility standards, and web development best practices.",
   },
   {
     id: "cert-2",
@@ -537,6 +539,7 @@ export const dummyCertifications: Certification[] = [
     issuer: "Dicoding Indonesia",
     date: "October 2023",
     url: "https://dicoding.com",
+    description: "Professional certification validating expert competency in building progressive web applications, clean architecture, performance optimization, and accessible component libraries.",
   },
 ];
 

@@ -24,6 +24,13 @@ export const certification = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'description',
+      title: 'Deskripsi / Ringkasan Sertifikat',
+      type: 'text',
+      rows: 3,
+      description: 'Penjelasan singkat kompetensi atau materi yang dipelajari pada sertifikasi ini',
+    }),
+    defineField({
       name: 'url',
       title: 'Tautan Kredensial Sertifikat',
       type: 'url',
@@ -43,7 +50,7 @@ export const certification = defineType({
           initialValue: 'Dokumen Sertifikat',
         }),
       ],
-      description: 'Unggah foto sertifikat untuk ditampilkan dalam modal saat kartu diklik',
+      description: 'Unggah file gambar sertifikat untuk ditampilkan pada halaman detail',
     }),
     defineField({
       name: 'order',
