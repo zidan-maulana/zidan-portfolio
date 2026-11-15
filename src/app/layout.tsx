@@ -35,9 +35,11 @@ export const metadata: Metadata = {
   title: `${dummyProfile.name} | ${dummyProfile.role}`,
   description: dummyProfile.shortBio,
   icons: {
-    icon: "/profile-picture.jpeg",
-    shortcut: "/profile-picture.jpeg",
-    apple: "/profile-picture.jpeg",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 
