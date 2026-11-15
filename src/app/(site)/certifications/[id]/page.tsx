@@ -80,7 +80,7 @@ export default async function CertificationDetailPage({
       {/* Main page content (z-10) */}
       <div className="w-full max-w-[756px] flex flex-col items-center relative z-10 pt-3 sm:pt-4">
         <div className="w-full rounded-[24px] bg-nav-bg px-[1.5px] pb-[2px] pt-[56px] sm:pt-[62px]">
-          <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-5 sm:px-7 md:px-[32px] py-8 sm:py-10 md:py-[50px]">
+          <main className="relative z-10 overflow-hidden rounded-[24px] bg-surface px-5 sm:px-7 md:px-[32px] pt-7 sm:pt-8 md:pt-[36px] pb-5 sm:pb-7 md:pb-[32px]">
             {/* Category / Issuer and date */}
             <div className="text-[13px] sm:text-[14px] font-normal text-muted">
               {cert.issuer}
@@ -100,14 +100,14 @@ export default async function CertificationDetailPage({
 
             {/* Certificate image preview container */}
             {cert.image?.asset?.url ? (
-              <div className="mt-7 sm:mt-8 relative aspect-[16/10] w-full overflow-hidden rounded-[14px] sm:rounded-[16px] bg-nav-bg border border-border/70 flex items-center justify-center">
+              <div className="mt-7 sm:mt-8 relative aspect-[16/10] w-full overflow-hidden rounded-[14px] sm:rounded-[16px] bg-nav-bg border border-border/70">
                 <Image
                   src={cert.image.asset.url}
                   alt={cert.image.alt || cert.title}
                   fill
                   unoptimized
                   priority
-                  className="object-contain p-2 sm:p-4"
+                  className="object-cover"
                 />
               </div>
             ) : (
