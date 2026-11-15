@@ -34,6 +34,11 @@ const interDisplay = localFont({
 export const metadata: Metadata = {
   title: `${dummyProfile.name} | ${dummyProfile.role}`,
   description: dummyProfile.shortBio,
+  icons: {
+    icon: "/profile-picture.jpeg",
+    shortcut: "/profile-picture.jpeg",
+    apple: "/profile-picture.jpeg",
+  },
 };
 
 export default function RootLayout({
